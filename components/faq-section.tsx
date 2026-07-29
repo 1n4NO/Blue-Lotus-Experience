@@ -300,14 +300,6 @@ function JournalNote({
           <NoteFoldMark kind={layout.kind} />
           <NoteIllustration kind={layout.kind} />
 
-          {index === 0 ? (
-            <NoteArtifact
-              src="/images/moss.png"
-              size={104}
-              className="right-[-2.2rem] top-[70%] z-10 h-28 w-28 -translate-y-1/2 rotate-[-10deg] opacity-92"
-            />
-          ) : null}
-
           {index === 1 ? (
             <NoteArtifact
               src="/images/petal.png"
@@ -574,15 +566,13 @@ export function FaqSection({ items }: FaqSectionProps) {
                   <Image src="/images/stain.png" alt="" fill sizes="96px" className="object-contain" />
                 </div>
 
-                <div
+				<div
                   aria-hidden="true"
-                  className="pointer-events-none absolute right-[12.25%] top-[3.5%] z-[12] h-40 w-40 rotate-[-6deg] opacity-96"
+                  className="pointer-events-none absolute left-[-3%] top-[10.1rem] z-[10] h-32 w-32 rotate-[90deg] opacity-88"
                 >
-                  <Image src="/images/note.png" alt="" fill sizes="160px" className="object-contain" />
-                  <span className="absolute left-[12%] top-[1.85rem] h-6 w-10 -rotate-[10deg] bg-[#cdbfa6] opacity-72 shadow-[0_1px_0_rgba(255,255,255,0.16)]" />
-                  <span className="absolute right-[14%] top-[1.95rem] h-6 w-10 rotate-[12deg] bg-[#cdbfa6] opacity-72 shadow-[0_1px_0_rgba(255,255,255,0.16)]" />
-                  <span className="absolute left-[8%] bottom-[1.25rem] h-1 w-[72%] bg-[linear-gradient(90deg,transparent,rgba(67,49,31,0.14),transparent)] opacity-70" />
+                  <Image src="/images/moss.png" alt="" fill sizes="96px" className="object-contain" />
                 </div>
+
 
                 <div className="absolute inset-0">
                   {items.map((item, index) => {
