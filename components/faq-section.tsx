@@ -518,8 +518,38 @@ export function FaqSection({ items }: FaqSectionProps) {
               <div className="absolute inset-0 bg-[#1a120d] shadow-[0_42px_90px_rgba(0,0,0,0.44)]" />
               <div className="absolute inset-[1rem] bg-[#16100c]" />
               <div className="absolute inset-[1.65rem] bg-[#211815]">
-                <div className="absolute inset-y-0 left-[3.5%] w-[39%] bg-[linear-gradient(90deg,rgba(247,240,228,0.94),rgba(231,220,202,0.88)_70%,rgba(219,205,186,0.96))] shadow-[inset_-1px_0_0_rgba(71,53,35,0.1)]" />
-                <div className="absolute inset-y-0 right-[3.5%] w-[39%] bg-[linear-gradient(270deg,rgba(247,240,228,0.94),rgba(231,220,202,0.88)_70%,rgba(219,205,186,0.96))] shadow-[inset_1px_0_0_rgba(71,53,35,0.1)]" />
+                <div className="absolute inset-y-0 left-[3.5%] w-[39%] bg-[linear-
+				gradient(90deg,rgba(247,240,228,0.94),rgba(231,220,202,0.88)_70%,rgba(219,205,186,0.96))]
+				shadow-[inset_-1px_0_0_rgba(71,53,35,0.1)]">
+					<div
+					aria-hidden="true"
+					className="pointer-events-none absolute right-0 bottom-0 top-0 z-[10]  w-[100%]
+					rotate-[0deg] opacity-88"
+					>
+					<Image
+						src="/images/paper.png"
+						alt=""
+						fill
+						sizes="(max-width: 1024px) 100vw, 72rem"
+						className="object-cover opacity-22 mix-blend-soft-light"
+					/>
+					</div>
+				</div>
+                <div className="absolute inset-y-0 right-[3.5%] w-[39%] bg-[linear-gradient(270deg,rgba(247,240,228,0.94),rgba(231,220,202,0.88)_70%,rgba(219,205,186,0.96))] shadow-[inset_1px_0_0_rgba(71,53,35,0.1)]">
+					<div
+					aria-hidden="true"
+					className="pointer-events-none absolute right-0 bottom-0 top-0 z-[10]  w-[100%]
+					rotate-[180deg] opacity-88"
+					>
+					<Image
+						src="/images/paper.png"
+						alt=""
+						fill
+						sizes="(max-width: 1024px) 100vw, 72rem"
+						className="object-cover opacity-22 mix-blend-soft-light"
+					/>
+					</div>
+				</div>
                 <div className="absolute inset-y-0 left-1/2 w-[6%] -translate-x-1/2 bg-[linear-gradient(90deg,rgba(16,12,10,0.14),rgba(9,7,6,0.34)_50%,rgba(16,12,10,0.14))] opacity-80 blur-[1px]" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(255,255,255,0.02),transparent_34%)]" />
                 <Image
