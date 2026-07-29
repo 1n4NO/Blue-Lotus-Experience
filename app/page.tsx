@@ -234,8 +234,8 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl">
             <SectionTitle
               eyebrow="Gallery"
-              title="Images as atmosphere."
-              description="Hovering reveals the frame. Everything else stays quiet."
+              title="A few unguarded moments."
+              description="What stillness looks like, from the outside."
             />
 
             <div className="mt-12 grid auto-rows-[14rem] gap-4 md:grid-cols-3 md:auto-rows-[11rem]">
