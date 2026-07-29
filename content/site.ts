@@ -11,7 +11,7 @@ export const navigation: NavLink[] = [
   { label: 'Experience', href: '#experience' },
   { label: 'Philosophy', href: '#philosophy' },
   { label: 'Gallery', href: '#gallery' },
-  { label: 'Retreat', href: '#retreat' },
+  { label: 'The Retreat', href: '#retreat' },
   { label: 'Journal', href: '#journal' },
   { label: 'Apply', href: 'https://deformity.ai/d/2CQYLc2wbqYl' }
 ];
@@ -282,8 +282,8 @@ export const whyEleven = [
 
 export const galleryImages: GalleryImage[] = [
   { src: '/images/gallery/6.png', alt: 'Blue lotus tea ceremony.', span: 'wide' },
-  { src: '/images/gallery/7.png', alt: 'Rest and reflection in the forest.', span: 'tall' },
-  { src: '/images/gallery/8.png', alt: 'Solo reflection in the forest.', span: 'default' },
+  { src: '/images/gallery/18.png', alt: 'Rest and reflection in the forest.', span: 'tall' },
+  { src: '/images/gallery/12.png', alt: 'Solo reflection in the forest.', span: 'default' },
   { src: '/images/gallery/9.png', alt: 'Mushroom tea in a forest setting.', span: 'default' },
   { src: '/images/gallery/11.png', alt: 'Guided forest walk.', span: 'default' }
 ];

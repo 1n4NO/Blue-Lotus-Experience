@@ -34,13 +34,6 @@ export function SiteFooter() {
             <span>Instagram</span>
             <span className="translate-x-0 transition duration-300 group-hover:translate-x-1">↗</span>
           </Link>
-          <Link
-            href={`mailto:${footerDetails.email}`}
-            className="group inline-flex items-center justify-between border-b border-white/10 pb-2 transition hover:text-text"
-          >
-            <span>Email</span>
-            <span className="translate-x-0 transition duration-300 group-hover:translate-x-1">↗</span>
-          </Link>
           <p className="border-b border-white/10 pb-2">{footerDetails.location}</p>
           <p className="border-b border-white/10 pb-2">Copyright 2026 Blue Lotus Experience</p>
         </div>

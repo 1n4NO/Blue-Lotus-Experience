@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 import {
   applicationCard,
@@ -27,9 +27,8 @@ import { Reveal } from '@/components/reveal';
 import { RetreatTimeline } from '@/components/retreat-timeline';
 import { SectionTitle } from '@/components/section-title';
 import { SeoJsonLd } from '@/components/seo-json-ld';
-import { SiteFooter } from '@/components/site-footer';
+import { EndSequence } from '@/components/end-sequence';
 import { StaggeredLines } from '@/components/staggered-lines';
-import { siteConfig } from '@/lib/site';
 
 const gallerySpanClasses: Record<string, string> = {
   wide: 'md:col-span-2 md:row-span-2',
@@ -308,6 +307,16 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className="relative h-[70vh] w-full min-h-[420px] overflow-hidden">
+          <Image
+            src="/images/gallery/10.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </section>
+
         <section id="what-to-expect" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 self-start">
@@ -326,32 +335,6 @@ export default function HomePage() {
                 >
                   <span className="mr-2.5 text-gold/80">✓</span>
                   {item}
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="what-to-bring" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
-            <div className="lg:sticky lg:top-28 self-start">
-              <SectionTitle
-                title="Bring enough to stay comfortable, not enough to stay distracted."
-                description="The list is intentionally small. Leave room for what the forest already offers."
-              />
-            </div>
-
-            <div className="flex flex-col">
-              {bringItems.map((item, index) => (
-                <Reveal
-                  key={item}
-                  delay={index * 0.06}
-                  className="flex items-center justify-between border-b border-white/8 py-3.5 first:pt-0 last:border-b-0"
-                >
-                  <span className="text-sm leading-[1.7] text-muted">{item}</span>
-                  <span className="font-ui text-[0.62rem] uppercase tracking-[0.34em] text-gold/70">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                 </Reveal>
               ))}
             </div>
@@ -430,29 +413,12 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2">
-                <Link
-                  href={applicationUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-7 py-4 font-ui text-xs uppercase tracking-[0.28em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/12 hover:shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
-                >
-                  Apply
-                  <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
-                </Link>
-                <Link
-                  href={`mailto:${siteConfig.email}`}
-                  className="inline-flex items-center gap-2 font-ui text-[0.68rem] uppercase tracking-[0.28em] text-muted transition duration-500 ease-calm hover:text-text"
-                >
-                  <Mail className="h-4 w-4" />
-                  bluelotusexperience@duck.com
-                </Link>
-              </div>
+              <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2" />
             </Reveal>
           </div>
         </section>
 
-        <SiteFooter />
+        <EndSequence />
       </article>
     </main>
   );
