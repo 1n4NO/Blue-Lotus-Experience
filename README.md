@@ -1,6 +1,6 @@
 # Blue Lotus Experience
 
-Project assets for the October 2026 Kodaikanal retreat.
+Project assets for the November 2026 Kodaikanal retreat.
 
 ## Files
 - `01_Blue_Lotus_Experience_Retreat_Concept.pdf`

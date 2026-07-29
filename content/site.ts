@@ -290,7 +290,7 @@ export const galleryImages: GalleryImage[] = [
 ];
 
 export const applicationDetails = {
-  month: 'October',
+  month: 'November',
   location: 'Kodaikanal',
   capacityNumber: '11',
   capacityLabel: 'Participants',

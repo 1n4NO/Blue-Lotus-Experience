@@ -7,5 +7,5 @@ export const siteConfig = {
   email: 'bluelotusexperience@duck.com',
   instagram: 'https://www.instagram.com/blue.lotus.experience/',
   location: 'Kodaikanal, Tamil Nadu',
-  retreatMonth: 'October 2026'
+  retreatMonth: 'November 2026'
 } as const;
