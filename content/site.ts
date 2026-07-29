@@ -276,7 +276,7 @@ export const principles = [
 
 export const whyEleven = [
   { value: '11', label: 'people' },
-  { value: '2', label: 'days' },
+  { value: 'II', label: 'days' },
   { value: '1', label: 'intent' }
 ] as const;
 
