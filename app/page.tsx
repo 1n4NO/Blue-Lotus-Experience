@@ -22,6 +22,7 @@ import {
 import { FaqAccordion } from '@/components/faq-accordion';
 import { HeroSection } from '@/components/hero-section';
 import { LineIllustration } from '@/components/line-illustration';
+import { ParallaxBackground } from '@/components/parallax-background';
 import { Reveal } from '@/components/reveal';
 import { RetreatTimeline } from '@/components/retreat-timeline';
 import { SectionTitle } from '@/components/section-title';
@@ -48,7 +49,6 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr,1.1fr] lg:items-start lg:gap-18">
             <div className="lg:sticky lg:top-28">
               <SectionTitle
-                eyebrow="Philosophy"
                 title="Very little. Very precise."
                 description="Blue Lotus is built around the belief that presence becomes possible when the unnecessary is removed."
                 className="max-w-2xl"
@@ -112,7 +112,6 @@ export default function HomePage() {
 
             <div className="self-center">
               <SectionTitle
-                eyebrow="The Experience"
                 title="A retreat shaped by texture, quiet, and human-scale ritual."
                 description="The rhythm is slow enough to notice rain on leaves, the weight of a ceramic cup, and the relief of not needing to perform."
               />
@@ -147,7 +146,6 @@ export default function HomePage() {
             <div className="grid gap-10 lg:grid-cols-[0.88fr,1.12fr] lg:gap-16">
               <div className="lg:sticky lg:top-28 self-start">
                 <SectionTitle
-                  eyebrow="Retreat Schedule"
                   title="Two days in the forest, shaped for presence rather than pace."
                   description="Times are approximate. Presence matters more than the clock."
                 />
@@ -156,8 +154,8 @@ export default function HomePage() {
               <RetreatTimeline days={retreatSchedule} />
             </div>
 
-            <div className="mt-14 grid gap-5 lg:grid-cols-3">
-              <Reveal className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6 sm:p-8">
+            <div className="mt-14 grid gap-10 sm:gap-12 lg:grid-cols-3">
+              <Reveal>
                 <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                   Included
                 </p>
@@ -170,7 +168,7 @@ export default function HomePage() {
                 </ul>
               </Reveal>
 
-              <Reveal delay={0.08} className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6 sm:p-8">
+              <Reveal delay={0.08}>
                 <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                   What To Expect
                 </p>
@@ -183,7 +181,7 @@ export default function HomePage() {
                 </ul>
               </Reveal>
 
-              <Reveal delay={0.16} className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6 sm:p-8">
+              <Reveal delay={0.16}>
                 <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                   What To Bring
                 </p>
@@ -204,7 +202,6 @@ export default function HomePage() {
             <div className="grid gap-10 lg:grid-cols-[1fr,0.9fr] lg:items-end lg:gap-16">
               <div className="space-y-7">
                 <SectionTitle
-                  eyebrow="Why Eleven"
                   title="A small number keeps the experience human."
                   description="Eleven people is enough for depth, and small enough for silence to remain intact."
                 />
@@ -212,11 +209,7 @@ export default function HomePage() {
 
               <div className="grid grid-cols-3 gap-4">
                 {whyEleven.map((item, index) => (
-                  <Reveal
-                    key={item.label}
-                    delay={index * 0.08}
-                    className="rounded-[1.75rem] border border-white/8 bg-white/[0.03] p-5 sm:p-6"
-                  >
+                  <Reveal key={item.label} delay={index * 0.08}>
                     <p className="font-display text-[clamp(3.5rem,8vw,6.8rem)] leading-[0.9] tracking-[-0.03em] text-text">
                       {item.value}
                     </p>
@@ -233,7 +226,6 @@ export default function HomePage() {
         <section id="gallery" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <SectionTitle
-              eyebrow="Gallery"
               title="A few unguarded moments."
               description="What stillness looks like, from the outside."
             />
@@ -268,8 +260,9 @@ export default function HomePage() {
 
         <section id="journal" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
             <div className="mx-auto max-w-5xl">
-            <div className="rounded-[2rem] border border-white/8 bg-white/[0.03] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
-              <Reveal className="space-y-7">
+            <div className="relative overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
+              <ParallaxBackground src="/images/journal.png" overlayOpacity={0.6} />
+              <Reveal className="relative space-y-7">
                 <p className="font-ui text-[0.7rem] uppercase tracking-[0.34em] text-gold/80">
                   Journal
                 </p>
@@ -291,22 +284,24 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 self-start">
               <SectionTitle
-                eyebrow="Who This Is For"
                 title="For people who need the pace of their days to change."
                 description="This retreat is for those who are carrying a full calendar, a noisy mind, or a steady ache for stillness."
               />
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="flex flex-col">
               {whoThisIsFor.map((item, index) => (
                 <Reveal
                   key={item}
                   delay={index * 0.08}
-                  className="rounded-[1.75rem] border border-white/8 bg-white/[0.03] p-5 sm:p-6"
+                  className="flex items-baseline justify-between gap-6 border-b border-white/8 py-5 first:pt-0 last:border-b-0"
                 >
                   <p className="font-display text-[1.55rem] leading-[1.02] tracking-[-0.025em] text-text">
                     {item}
                   </p>
+                  <span className="font-ui text-[0.62rem] uppercase tracking-[0.34em] text-gold/70">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                 </Reveal>
               ))}
             </div>
@@ -317,25 +312,22 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 self-start">
               <SectionTitle
-                eyebrow="What To Expect"
-                title="A small editorial checklist of the rhythm ahead."
+                title="A checklist of the rhythm ahead."
                 description="The retreat is structured, but never crowded. Each element exists to support calm, not momentum."
               />
             </div>
 
-            <div className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6 sm:p-8">
-              <div className="grid gap-4 sm:grid-cols-2">
-                {whatToExpect.map((item, index) => (
-                  <Reveal
-                    key={item}
-                    delay={index * 0.05}
-                    className="border-b border-white/6 pb-3.5 text-[0.83rem] uppercase tracking-[0.22em] text-text/90"
-                  >
-                    <span className="mr-2.5 text-gold/80">✓</span>
-                    {item}
-                  </Reveal>
-                ))}
-              </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {whatToExpect.map((item, index) => (
+                <Reveal
+                  key={item}
+                  delay={index * 0.05}
+                  className="text-[0.83rem] uppercase tracking-[0.22em] text-text/90"
+                >
+                  <span className="mr-2.5 text-gold/80">✓</span>
+                  {item}
+                </Reveal>
+              ))}
             </div>
           </div>
         </section>
@@ -344,18 +336,17 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 self-start">
               <SectionTitle
-                eyebrow="What To Bring"
-                title="Enough to stay comfortable, not enough to stay distracted."
+                title="Bring enough to stay comfortable, not enough to stay distracted."
                 description="The list is intentionally small. Leave room for what the forest already offers."
               />
             </div>
 
-            <div className="grid gap-3.5">
+            <div className="flex flex-col">
               {bringItems.map((item, index) => (
                 <Reveal
                   key={item}
                   delay={index * 0.06}
-                  className="flex items-center justify-between rounded-[1.5rem] border border-white/8 bg-white/[0.03] px-5 py-3.5"
+                  className="flex items-center justify-between border-b border-white/8 py-3.5 first:pt-0 last:border-b-0"
                 >
                   <span className="text-sm leading-[1.7] text-muted">{item}</span>
                   <span className="font-ui text-[0.62rem] uppercase tracking-[0.34em] text-gold/70">
@@ -371,7 +362,6 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 self-start">
               <SectionTitle
-                eyebrow="FAQ"
                 title="Questions, answered with the same restraint as the rest of the retreat."
                 description="If something is still unclear, we would rather answer it directly than let it become noise."
               />
@@ -384,9 +374,6 @@ export default function HomePage() {
         <section id="application-process" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
-              <p className="mb-3 font-ui text-[0.66rem] uppercase tracking-[0.36em] text-gold/80">
-                Application Process
-              </p>
               <h2 className="max-w-md font-display text-[clamp(2.35rem,5.2vw,4.9rem)] leading-[1.12] tracking-[-0.035em] text-text text-balance">
                 Apply.
                 <br />
@@ -400,13 +387,9 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-4 lg:grid-cols-5">
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
               {applicationProcess.map((step, index) => (
-                <Reveal
-                  key={step.title}
-                  delay={index * 0.06}
-                  className="rounded-[1.75rem] border border-white/8 bg-white/[0.03] p-5 sm:p-6"
-                >
+                <Reveal key={step.title} delay={index * 0.06}>
                   <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                     0{index + 1}
                   </p>
@@ -422,54 +405,50 @@ export default function HomePage() {
 
         <section id="application" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-5xl">
-            <div className="rounded-[2rem] border border-white/8 bg-white/[0.03] p-6 sm:p-8 lg:p-10">
-              <Reveal className="space-y-7 text-center">
-                <p className="font-ui text-[0.72rem] uppercase tracking-[0.34em] text-gold/80">
-                  Application
+            <Reveal className="space-y-7 text-center">
+              <p className="font-ui text-[0.72rem] uppercase tracking-[0.34em] text-gold/80">
+                Application
+              </p>
+
+              <div className="mx-auto max-w-4xl space-y-3.5">
+                <h2 className="font-display text-[clamp(2.8rem,6.8vw,6.3rem)] leading-[0.92] tracking-[-0.03em] text-text text-balance">
+                  {applicationDetails.month} 2026
+                  <br />
+                  {applicationDetails.location}
+                </h2>
+
+                <p className="mx-auto max-w-2xl text-pretty text-base leading-7 text-muted">
+                  {applicationDetails.note}
                 </p>
+              </div>
 
-                <div className="mx-auto max-w-4xl space-y-3.5">
-                  <h2 className="font-display text-[clamp(2.8rem,6.8vw,6.3rem)] leading-[0.92] tracking-[-0.03em] text-text text-balance">
-                    {applicationDetails.month} 2026
-                    <br />
-                    {applicationDetails.location}
-                  </h2>
-
-                  <p className="mx-auto max-w-2xl text-pretty text-base leading-7 text-muted">
-                    {applicationDetails.note}
+              <div className="mx-auto grid max-w-4xl gap-6 border-y border-white/8 py-6 sm:grid-cols-3">
+                {[applicationCard.duration, applicationCard.participants, applicationCard.price].map((item) => (
+                  <p key={item} className="font-ui text-[0.62rem] uppercase tracking-[0.34em] text-gold/75">
+                    {item}
                   </p>
-                </div>
+                ))}
+              </div>
 
-                <div className="mx-auto grid max-w-4xl gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
-                  {[applicationCard.duration, applicationCard.participants, applicationCard.price].map((item) => (
-                    <div key={item} className="rounded-[1.35rem] border border-white/8 bg-black/18 px-4 py-3.5 text-left">
-                      <p className="font-ui text-[0.62rem] uppercase tracking-[0.34em] text-gold/75">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2">
-                  <Link
-                    href={applicationUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-7 py-4 font-ui text-xs uppercase tracking-[0.28em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/12 hover:shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
-                  >
-                    Apply
-                    <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
-                  </Link>
-                  <Link
-                    href={`mailto:${siteConfig.email}`}
-                    className="inline-flex items-center gap-2 font-ui text-[0.68rem] uppercase tracking-[0.28em] text-muted transition duration-500 ease-calm hover:text-text"
-                  >
-                    <Mail className="h-4 w-4" />
-                    bluelotusexperience@duck.com
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
+              <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2">
+                <Link
+                  href={applicationUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-7 py-4 font-ui text-xs uppercase tracking-[0.28em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/12 hover:shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
+                >
+                  Apply
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
+                </Link>
+                <Link
+                  href={`mailto:${siteConfig.email}`}
+                  className="inline-flex items-center gap-2 font-ui text-[0.68rem] uppercase tracking-[0.28em] text-muted transition duration-500 ease-calm hover:text-text"
+                >
+                  <Mail className="h-4 w-4" />
+                  bluelotusexperience@duck.com
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
 

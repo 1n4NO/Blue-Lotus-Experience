@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 import { cn } from '@/lib/cn';
+import { ParallaxBackground } from '@/components/parallax-background';
 import type { RetreatDay } from '@/types/site';
 
 type RetreatTimelineProps = {
@@ -25,9 +26,10 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
       {days.map((day, dayIndex) => (
         <article
           key={day.day}
-          className="relative rounded-[2rem] border border-white/8 bg-white/[0.03] p-6 sm:p-8"
+          className="relative overflow-hidden rounded-[2rem] p-6 sm:p-8"
         >
-          <div className="mb-8 flex flex-col gap-3 border-b border-white/8 pb-5 sm:flex-row sm:items-end sm:justify-between">
+          <ParallaxBackground src="/images/paper.png" overlayOpacity={0.6} />
+          <div className="relative mb-8 flex flex-col gap-3 border-b border-white/8 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                 {day.day}

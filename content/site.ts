@@ -106,7 +106,7 @@ export const retreatSchedule: RetreatDay[] = [
         time: '3:30 PM',
         title: 'Tea Ceremony',
         detail:
-          'A slow tea ritual inspired by mindfulness rather than tradition. An opportunity to practice attention through simple actions.'
+          'A slow tea ritual, held more as a practice than a performance. An opportunity to practice attention through simple actions.'
       },
       {
         time: '4:30 PM',
@@ -157,9 +157,9 @@ export const retreatSchedule: RetreatDay[] = [
       },
       {
         time: '9:30 AM',
-        title: 'Solo Reflection Walk',
+        title: 'Forest Bathing Ritual',
         detail:
-          'Participants explore individually. Optional journaling prompts are provided. Walk slowly. Pause often. Leave no trace.'
+          'Participants explore individually. Optional journaling prompts are provided. Walk slowly. Pause often. Let the forest set the pace.'
       },
       {
         time: '11:00 AM',
@@ -203,8 +203,7 @@ export const bringItems = [
 export const whoThisIsFor = [
   'Busy professionals',
   'Founders',
-  'Creatives',
-  'Anyone craving stillness'
+  'Creatives'
 ] as const;
 
 export const whatToExpect = [
