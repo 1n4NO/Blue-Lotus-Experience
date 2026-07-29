@@ -4,6 +4,7 @@ import { Inter, Libre_Baskerville } from 'next/font/google';
 import { AudioToggle } from '@/components/audio-toggle';
 import { CustomCursor } from '@/components/custom-cursor';
 import { NoiseOverlay } from '@/components/noise-overlay';
+import { LoadingSequence } from '@/components/loading-sequence';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { SiteHeader } from '@/components/site-header';
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
@@ -81,7 +82,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <NoiseOverlay />
           <CustomCursor />
           <AudioToggle />
-          {children}
+          <LoadingSequence>{children}</LoadingSequence>
         </SmoothScrollProvider>
       </body>
     </html>
