@@ -35,7 +35,6 @@ Key files
 - `components/hero-section.tsx`
 - `components/hero-media.tsx`
 - `components/retreat-timeline.tsx`
-- `components/faq-accordion.tsx`
 - `components/site-header.tsx`
 - `components/site-footer.tsx`
 - `components/audio-toggle.tsx`
@@ -65,4 +64,3 @@ Behavior notes
 - Respect `prefers-reduced-motion`
 - Use soft reveals, clip-path, opacity, blur, parallax, and slow transitions
 - Keep interactions subtle and editorial
-

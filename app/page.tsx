@@ -19,7 +19,7 @@ import {
   whoThisIsFor,
   whyEleven
 } from '@/content/site';
-import { FaqAccordion } from '@/components/faq-accordion';
+import { FaqSection } from '@/components/faq-section';
 import { HeroSection } from '@/components/hero-section';
 import { LineIllustration } from '@/components/line-illustration';
 import { ParallaxBackground } from '@/components/parallax-background';
@@ -341,18 +341,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="faq" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
-            <div className="lg:sticky lg:top-28 self-start">
-              <SectionTitle
-                title="Questions, answered with the same restraint as the rest of the retreat."
-                description="If something is still unclear, we would rather answer it directly than let it become noise."
-              />
-            </div>
-
-            <FaqAccordion items={faqItems} />
-          </div>
-        </section>
+        <FaqSection items={faqItems} />
 
         <section id="application-process" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
