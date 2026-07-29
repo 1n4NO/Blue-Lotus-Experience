@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
-import { navigation } from '@/content/site';
+import { applicationUrl, navigation } from '@/content/site';
 import { cn } from '@/lib/cn';
 
 export function SiteHeader() {
@@ -73,7 +73,9 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="#apply"
+              href={applicationUrl}
+              target="_blank"
+              rel="noreferrer"
               className="hidden border border-white/12 px-4 py-2 font-ui text-[0.68rem] uppercase tracking-[0.28em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/24 hover:bg-white/8 md:inline-flex"
             >
               Apply

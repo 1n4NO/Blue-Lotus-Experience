@@ -11,8 +11,10 @@ export const navigation: NavLink[] = [
   { label: 'Gallery', href: '#gallery' },
   { label: 'Retreat', href: '#retreat' },
   { label: 'Journal', href: '#journal' },
-  { label: 'Apply', href: '#apply' }
+  { label: 'Apply', href: 'https://deformity.ai/d/2CQYLc2wbqYl' }
 ];
+
+export const applicationUrl = 'https://deformity.ai/d/2CQYLc2wbqYl';
 
 export const heroCopy = {
   headline: 'Come home to yourself.',

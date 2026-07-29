@@ -4,6 +4,7 @@ import { ArrowUpRight, Mail } from 'lucide-react';
 
 import {
   applicationDetails,
+  applicationUrl,
   bringItems,
   experienceItems,
   galleryImages,
@@ -327,7 +328,9 @@ export default function HomePage() {
               </h2>
               <div className="mx-auto flex max-w-xl flex-col items-center gap-4">
                 <Link
-                  href={`mailto:${siteConfig.email}`}
+                  href={applicationUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-7 py-4 font-ui text-xs uppercase tracking-[0.28em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/22 hover:bg-white/12"
                 >
                   Apply
