@@ -300,6 +300,13 @@ function JournalNote({
           <NoteFoldMark kind={layout.kind} />
           <NoteIllustration kind={layout.kind} />
 
+          {index === 4 ? (
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 z-[9] bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.18),transparent_14%),radial-gradient(circle_at_78%_24%,rgba(96,69,41,0.08),transparent_16%),radial-gradient(circle_at_52%_80%,rgba(96,69,41,0.06),transparent_18%),repeating-linear-gradient(108deg,rgba(94,68,42,0.035)_0,rgba(94,68,42,0.035)_1px,transparent_1px,transparent_11px)] opacity-75 mix-blend-multiply"
+            />
+          ) : null}
+
           {index === 1 ? (
             <NoteArtifact
               src="/images/petal.png"
@@ -524,7 +531,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 					<div
 					aria-hidden="true"
 					className="pointer-events-none absolute right-0 bottom-0 top-0 z-[10]  w-[100%]
-					rotate-[0deg] opacity-88"
+					rotate-[0.5deg] opacity-88"
 					>
 					<Image
 						src="/images/paper.png"
@@ -534,15 +541,49 @@ export function FaqSection({ items }: FaqSectionProps) {
 						className="object-cover opacity-22 mix-blend-soft-light"
 					/>
 					</div>
-				</div>
+						<div
+						aria-hidden="true"
+						className="pointer-events-none absolute left-[35%] top-[10%] z-30 h-20 w-60 -translate-x-1/2 -translate-y-1/2 rotate-[90deg] opacity-88"
+						>
+						<Image src="/images/fern-2.png" alt="" fill sizes="80px" className="object-contain" />
+						</div>
+						<div
+						aria-hidden="true"
+						className="pointer-events-none absolute left-[36%] top-[8%] z-[31] h-5 w-28 -translate-x-1/2 -translate-y-1/2 rotate-[180deg] opacity-78"
+						>
+						<span className="absolute inset-0 rounded-full bg-[linear-gradient(90deg,rgba(210,194,164,0.16),rgba(236,226,206,0.82)_35%,rgba(210,194,164,0.18)_70%,rgba(186,171,143,0.14))] shadow-[0_1px_0_rgba(255,255,255,0.18),0_0_0_1px_rgba(76,55,33,0.06)]" />
+						<span className="absolute left-[18%] top-[18%] h-[64%] w-[10%] -skew-y-12 bg-[rgba(156,138,108,0.14)]" />
+						<span className="absolute right-[18%] top-[18%] h-[64%] w-[10%] skew-y-12 bg-[rgba(156,138,108,0.14)]" />
+						</div>
+					</div>
                 <div className="absolute inset-y-0 right-[3.5%] w-[39%] bg-[linear-gradient(270deg,rgba(247,240,228,0.94),rgba(231,220,202,0.88)_70%,rgba(219,205,186,0.96))] shadow-[inset_1px_0_0_rgba(71,53,35,0.1)]">
 					<div
 					aria-hidden="true"
 					className="pointer-events-none absolute right-0 bottom-0 top-0 z-[10]  w-[100%]
-					rotate-[180deg] opacity-88"
+					rotate-[184deg] opacity-88"
 					>
 					<Image
 						src="/images/paper.png"
+						alt=""
+						fill
+						sizes="(max-width: 1024px) 100vw, 72rem"
+						className="object-cover opacity-22 mix-blend-soft-light"
+					/>
+					</div>
+					<div
+					aria-hidden="true"
+					className="pointer-events-none absolute right-[-35%] top-[8%] z-10 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[120deg] opacity-88"
+					>
+					<Image src="/images/petal-2.png" alt="" fill sizes="80px" className="object-contain" />
+					</div>
+					<div
+					aria-hidden="true"
+					className="pointer-events-none absolute right-0 bottom-[-20px] top-[-20px] z-[10]  w-[100%]
+					rotate-[181deg] opacity-88
+					shadow-[10px_1px_20px_rgba(0,0,0,0.1)]"
+					>
+					<Image
+						src="/images/paper-1.png"
 						alt=""
 						fill
 						sizes="(max-width: 1024px) 100vw, 72rem"
@@ -551,6 +592,12 @@ export function FaqSection({ items }: FaqSectionProps) {
 					</div>
 				</div>
                 <div className="absolute inset-y-0 left-1/2 w-[6%] -translate-x-1/2 bg-[linear-gradient(90deg,rgba(16,12,10,0.14),rgba(9,7,6,0.34)_50%,rgba(16,12,10,0.14))] opacity-80 blur-[1px]" />
+				<div
+				aria-hidden="true"
+				className="pointer-events-none absolute right-[5%] top-[8%] z-10 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[120deg] opacity-88"
+				>
+				<Image src="/images/fern.png" alt="" fill sizes="80px" className="object-contain" />
+				</div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(255,255,255,0.02),transparent_34%)]" />
                 <Image
                   src="/images/paper.png"
@@ -560,13 +607,6 @@ export function FaqSection({ items }: FaqSectionProps) {
                   className="object-cover opacity-22 mix-blend-soft-light"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18),transparent_18%,transparent_82%,rgba(0,0,0,0.22))]" />
-
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-[74%] top-[58%] z-10 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[12deg] opacity-88"
-                >
-                  <Image src="/images/petal.png" alt="" fill sizes="80px" className="object-contain" />
-                </div>
 
                 <div
                   aria-hidden="true"

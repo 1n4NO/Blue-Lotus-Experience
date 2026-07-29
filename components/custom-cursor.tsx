@@ -11,13 +11,26 @@ export function CustomCursor() {
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
   const [hovering, setHovering] = useState(false);
+  const [moving, setMoving] = useState(false);
 
   useEffect(() => {
     if (!finePointer || reduceMotion) return;
+    let stopTimer: number | null = null;
 
     const onMove = (event: MouseEvent) => {
       x.set(event.clientX - 14);
       y.set(event.clientY - 14);
+      setMoving(true);
+
+      if (stopTimer !== null) {
+        window.clearTimeout(stopTimer);
+      }
+
+      stopTimer = window.setTimeout(() => {
+        setMoving(false);
+        stopTimer = null;
+      }, 120);
+
       const target = event.target as HTMLElement | null;
       setHovering(Boolean(target?.closest('a, button, [role="button"]')));
     };
@@ -28,6 +41,9 @@ export function CustomCursor() {
     window.addEventListener('mouseleave', onLeave);
 
     return () => {
+      if (stopTimer !== null) {
+        window.clearTimeout(stopTimer);
+      }
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseleave', onLeave);
     };
@@ -53,6 +69,7 @@ export function CustomCursor() {
           animate={{ opacity: hovering ? 1 : 0.82, y: hovering ? 0 : 1 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="absolute left-9 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-black/55 px-3.5 py-1.5 font-ui text-[0.56rem] uppercase tracking-[0.34em] text-text/90 backdrop-blur-xl"
+          style={{ opacity: moving ? (hovering ? 1 : 0.82) : 0, pointerEvents: moving ? 'auto' : 'none' }}
         >
           Slow Down
         </motion.div>
