@@ -12,17 +12,16 @@ export function HeroMedia() {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.video
+        src="/video/hero.mp4"
         style={{ scale }}
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/images/gallery/2.png"
-      >
-        <source src="/video/hero.mp4" type="video/mp4" />
-      </motion.video>
+      />
 
       <motion.div
         aria-hidden="true"
