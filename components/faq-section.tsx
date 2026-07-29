@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
+import { LayoutGroup, motion, useReducedMotion } from 'framer-motion';
 
 import { cn } from '@/lib/cn';
 import type { FaqItem } from '@/types/site';
@@ -11,73 +11,129 @@ type FaqSectionProps = {
   items: FaqItem[];
 };
 
-type NotePhase = 'closed' | 'opening' | 'open' | 'closing-content' | 'closing-fold';
+type NoteState = 'closed' | 'opening' | 'open' | 'closing';
 
-const OPEN_MS = 760;
-const CLOSE_CONTENT_MS = 180;
-const CLOSE_FOLD_MS = 520;
+type NoteStyle = {
+  top: string;
+  left: string;
+  width: string;
+  rotate: number;
+  zIndex: number;
+  tucked: 'left' | 'right' | 'center';
+  tone: 'warm' | 'paper' | 'aged' | 'tea' | 'lotus';
+  accent?: 'lotus' | 'moss' | 'tea-stain' | 'sketch';
+};
 
-const CLOSED_VARIATIONS = [
-  { rotate: -0.45, x: -4, y: 0 },
-  { rotate: 0.36, x: 10, y: 10 },
-  { rotate: -0.28, x: -2, y: 18 },
-  { rotate: 0.22, x: 8, y: 28 },
-  { rotate: -0.18, x: -8, y: 38 }
-] as const;
+const OPEN_MS = 860;
+const CLOSE_MS = 240;
 
-function PaperSurface() {
+const NOTE_STYLES: NoteStyle[] = [
+  { top: '11%', left: '6%', width: '33%', rotate: -2.2, zIndex: 6, tucked: 'left', tone: 'warm', accent: 'lotus' },
+  { top: '23%', left: '61%', width: '30%', rotate: 1.7, zIndex: 5, tucked: 'right', tone: 'paper', accent: 'moss' },
+  { top: '38%', left: '20%', width: '34%', rotate: -0.9, zIndex: 7, tucked: 'center', tone: 'aged', accent: 'tea-stain' },
+  { top: '58%', left: '56%', width: '31%', rotate: 1.2, zIndex: 4, tucked: 'right', tone: 'tea', accent: 'sketch' },
+  { top: '70%', left: '9%', width: '35%', rotate: -1.4, zIndex: 3, tucked: 'left', tone: 'lotus' }
+];
+
+const PAPER_TONES: Record<NoteStyle['tone'], string> = {
+  warm: 'from-[#ede5d7] via-[#e4dacc] to-[#dbcfbc]',
+  paper: 'from-[#ece3d3] via-[#e5d8c3] to-[#d8c8af]',
+  aged: 'from-[#e6dbc8] via-[#ddcfb7] to-[#d4c19f]',
+  tea: 'from-[#e9dfd0] via-[#dfd1bd] to-[#d6c4aa]',
+  lotus: 'from-[#efe7da] via-[#e6dbc8] to-[#ddd0bb]'
+};
+
+function GrainLayer() {
   return (
     <>
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#e7decd_0%,#ded3bf_100%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(105,78,48,0.08),transparent_12%),radial-gradient(circle_at_80%_24%,rgba(105,78,48,0.05),transparent_11%),radial-gradient(circle_at_50%_82%,rgba(105,78,48,0.04),transparent_13%)] opacity-70"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_20%,rgba(124,92,61,0.07),transparent_10%),radial-gradient(circle_at_78%_18%,rgba(124,92,61,0.05),transparent_12%),radial-gradient(circle_at_50%_82%,rgba(124,92,61,0.035),transparent_14%)] opacity-70"
+        className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(105deg,rgba(77,55,33,0.03)_0,rgba(77,55,33,0.03)_1px,transparent_1px,transparent_9px)] opacity-35 mix-blend-multiply"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[repeating-linear-gradient(96deg,rgba(87,63,39,0.035)_0,rgba(87,63,39,0.035)_1px,transparent_1px,transparent_9px)] opacity-35 mix-blend-multiply"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.16),transparent_18%,transparent_82%,rgba(83,61,39,0.08))] opacity-25"
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.15),transparent_12%,transparent_88%,rgba(78,57,34,0.08))] opacity-25"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 shadow-[inset_0_0_0_1px_rgba(80,60,37,0.04),inset_0_24px_48px_rgba(255,255,255,0.08),inset_0_-18px_30px_rgba(82,60,37,0.05)]"
+        className="pointer-events-none absolute inset-0 shadow-[inset_0_24px_42px_rgba(255,255,255,0.08),inset_0_-20px_34px_rgba(72,52,31,0.06)]"
       />
     </>
   );
 }
 
-function FaqPaperNote({
+function Bookmark({ accent }: { accent?: NoteStyle['accent'] }) {
+  if (accent === 'lotus') {
+    return (
+      <div aria-hidden="true" className="absolute -right-3 top-8 h-14 w-4">
+        <div className="absolute inset-0 rotate-[10deg] bg-[#7c96b7]/40 shadow-[0_6px_16px_rgba(0,0,0,0.12)]" />
+        <svg viewBox="0 0 24 64" className="absolute inset-0 h-full w-full rotate-[10deg]" fill="none">
+          <path d="M12 5C14 11 18 15 20 18C16 19 15 23 12 27C9 23 8 19 4 18C6 15 10 11 12 5Z" fill="#7396ba" fillOpacity="0.55" />
+          <path d="M12 24C12 34 12 44 12 58" stroke="#59748f" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (accent === 'moss') {
+    return (
+      <div aria-hidden="true" className="absolute -left-3 top-8 h-12 w-4 rotate-[-6deg] rounded-full bg-[#5b6744]/45 shadow-[0_6px_16px_rgba(0,0,0,0.12)]" />
+    );
+  }
+
+  if (accent === 'tea-stain') {
+    return (
+      <div
+        aria-hidden="true"
+        className="absolute right-4 top-5 h-14 w-14 rounded-full bg-[radial-gradient(circle,rgba(127,95,51,0.24),rgba(127,95,51,0.05)_55%,transparent_72%)] opacity-65 blur-[0.2px]"
+      />
+    );
+  }
+
+  if (accent === 'sketch') {
+    return (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 80 40"
+        className="absolute -left-2 top-7 h-8 w-14 -rotate-12 opacity-45"
+        fill="none"
+      >
+        <path d="M8 28c8-10 13-16 22-16 10 0 17 6 24 6 6 0 11-3 18-9" stroke="#81623d" strokeWidth="1.3" strokeLinecap="round" />
+        <path d="M21 20c1 4 4 6 7 8" stroke="#81623d" strokeWidth="1" strokeLinecap="round" />
+        <path d="M50 19c2 4 4 6 8 8" stroke="#81623d" strokeWidth="1" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  return null;
+}
+
+function TuckedNotePreview({
   item,
   index,
-  phase,
+  styleInfo,
   active,
+  onOpen,
+  buttonRef,
   buttonId,
   panelId,
-  buttonRef,
-  onToggle,
   onKeyDown
 }: {
   item: FaqItem;
   index: number;
-  phase: NotePhase;
+  styleInfo: NoteStyle;
   active: boolean;
+  onOpen: () => void;
+  buttonRef: (node: HTMLButtonElement | null) => void;
   buttonId: string;
   panelId: string;
-  buttonRef: (node: HTMLButtonElement | null) => void;
-  onToggle: () => void;
   onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => void;
 }) {
   const reduceMotion = useReducedMotion();
-  const variation = CLOSED_VARIATIONS[index] ?? { rotate: 0, x: 0, y: index * 10 };
-  const isOpenSurface = phase === 'opening' || phase === 'open' || phase === 'closing-content';
-  const isShowingAnswer = phase === 'opening' || phase === 'open' || phase === 'closing-content';
-  const isClosing = phase === 'closing-content' || phase === 'closing-fold';
 
   return (
     <motion.button
@@ -86,133 +142,206 @@ function FaqPaperNote({
       type="button"
       aria-expanded={active}
       aria-controls={panelId}
-      onClick={onToggle}
+      onClick={onOpen}
       onKeyDown={onKeyDown}
-      layout
-      whileHover={reduceMotion || active ? undefined : { y: -2 }}
-      transition={{ duration: reduceMotion ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="relative block w-full origin-top-left overflow-hidden text-left outline-none"
+      className="group absolute left-1/2 top-1/2 block origin-center text-left outline-none focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-0"
       style={{
-        zIndex: active ? 40 : 20 - index,
-        rotate: reduceMotion || active ? 0 : variation.rotate,
-        x: reduceMotion || active ? 0 : variation.x,
-        y: reduceMotion || active ? 0 : variation.y
+        top: styleInfo.top,
+        left: styleInfo.left,
+        width: styleInfo.width,
+        zIndex: active ? 30 : styleInfo.zIndex,
+        rotate: active ? 0 : styleInfo.rotate,
+        translateX: '-50%',
+        translateY: '-50%'
       }}
     >
       <div
         className={cn(
-          'relative overflow-hidden rounded-[0.18rem] border-0 shadow-[0_12px_28px_rgba(0,0,0,0.18)] transition-colors duration-500 ease-calm',
-          isOpenSurface ? 'bg-[#e4dbc8]' : 'bg-[#e0d6c2]'
+          'relative shadow-[0_14px_26px_rgba(0,0,0,0.17)] transition-all duration-500 ease-calm',
+          'bg-transparent'
         )}
       >
-        <PaperSurface />
-
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-12 origin-top overflow-hidden"
-          style={{ transformPerspective: 1200 }}
-          animate={
-            reduceMotion
-              ? { opacity: 1 }
-              : {
-                  opacity: isOpenSurface ? 1 : 0.98,
-                  rotateX: isOpenSurface ? 0 : -12
-                }
-          }
-          transition={{ duration: reduceMotion ? 0.18 : 0.78, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(241,234,221,0.96),rgba(224,213,195,0.94))]" />
-          <span className="absolute inset-x-4 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(73,53,33,0.15),transparent)]" />
-          <span className="absolute inset-0 bg-[linear-gradient(145deg,transparent_45%,rgba(83,60,36,0.11)_46%,transparent_47%)] opacity-45" />
-        </motion.div>
-
-        <div className="relative z-10 px-4 py-4 sm:px-5 sm:py-5">
-          <div className="flex items-start gap-4">
-            <span className="mt-[0.1rem] flex-none font-ui text-[0.6rem] uppercase tracking-[0.34em] text-[#99784e]">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <div className="min-w-0 flex-1">
-              <p
-                className={cn(
-                  'max-w-[34rem] font-display tracking-[-0.03em] text-[#24180f] text-balance transition-[font-size,line-height] duration-500 ease-calm',
-                  active
-                    ? 'text-[clamp(1.38rem,2vw,1.95rem)] leading-[1.06]'
-                    : 'text-[clamp(1.01rem,1.45vw,1.18rem)] leading-[1.12]'
-                )}
-              >
-                {item.question}
-              </p>
-            </div>
-          </div>
-
-          <AnimatePresence initial={false} mode="wait">
-            {isShowingAnswer ? (
-              <motion.div
-                key={item.question}
-                id={panelId}
-                role="region"
-                aria-labelledby={buttonId}
-                initial={
-                  reduceMotion
-                    ? { opacity: 0 }
-                    : phase === 'closing-content'
-                      ? { opacity: 1, height: 'auto' }
-                      : { opacity: 0, height: 0 }
-                }
-                animate={
-                  reduceMotion
-                    ? { opacity: phase === 'closing-content' ? 0 : 1 }
-                    : phase === 'closing-content'
-                      ? { opacity: 0, height: 'auto' }
-                      : { opacity: 1, height: 'auto' }
-                }
-                exit={reduceMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
-                transition={{
-                  duration: reduceMotion ? 0.2 : phase === 'closing-content' ? 0.18 : 0.72,
-                  ease: [0.22, 1, 0.36, 1]
-                }}
-                className="overflow-hidden"
-              >
-                <div className="pt-4 sm:pt-5">
-                  <div className="h-px bg-[linear-gradient(90deg,transparent,rgba(73,53,33,0.2),transparent)]" />
-                  <div className="max-w-[34rem] pt-4 sm:pt-5">
-                    <p className="text-[0.96rem] leading-[1.88] text-[#2b2015] sm:text-[1rem]">
-                      {item.answer}
-                    </p>
-                    <p className="mt-4 font-ui text-[0.63rem] uppercase tracking-[0.34em] text-[#6f583d]/72 italic">
-                      with care
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
-        </div>
-
-        {!reduceMotion ? (
-          <motion.div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-5 bg-[linear-gradient(180deg,transparent,rgba(72,53,31,0.03))]"
-            animate={{ opacity: isClosing ? 0.45 : 0.18 }}
-            transition={{ duration: 0.32, ease: 'easeOut' }}
+        <div className="relative min-h-[8.2rem]">
+          <div className={cn('absolute inset-0 bg-gradient-to-br', PAPER_TONES[styleInfo.tone])} />
+          <Image
+            src="/images/paper.png"
+            alt=""
+            fill
+            sizes="(max-width: 768px) 80vw, 28vw"
+            className="object-cover opacity-38 mix-blend-soft-light"
           />
-        ) : null}
+          <GrainLayer />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_34%,rgba(80,58,33,0.05)_100%)] opacity-55" />
+          <div className="absolute inset-0 bg-[linear-gradient(125deg,transparent_0,transparent_46%,rgba(79,58,34,0.09)_47%,transparent_49%)] opacity-40" />
+          <Bookmark accent={styleInfo.accent} />
+
+          <div className="relative z-10 flex h-full min-h-[8.2rem] flex-col px-4 py-4 sm:px-5 sm:py-5">
+            <div className="flex items-start justify-between gap-4">
+              <span className="font-ui text-[0.58rem] uppercase tracking-[0.36em] text-[#8b6f46]">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </div>
+
+            <p
+              className={cn(
+                'mt-4 max-w-[18rem] font-display text-[#24170f] text-balance',
+                active ? 'text-[clamp(1.15rem,1.6vw,1.75rem)] leading-[1.06]' : 'text-[clamp(0.96rem,1.15vw,1.15rem)] leading-[1.12]'
+              )}
+            >
+              {item.question}
+            </p>
+
+            <div className="mt-auto pt-6" />
+          </div>
+        </div>
       </div>
     </motion.button>
+  );
+}
+
+function OpenNote({
+  item,
+  index,
+  styleInfo,
+  state,
+  buttonId,
+  panelId,
+  reduceMotion,
+  onToggle
+}: {
+  item: FaqItem;
+  index: number;
+  styleInfo: NoteStyle;
+  state: NoteState;
+  buttonId: string;
+  panelId: string;
+  reduceMotion: boolean;
+  onToggle: () => void;
+}) {
+  const opening = state === 'opening';
+  const open = state === 'open';
+  const closing = state === 'closing';
+  const showContent = state !== 'closed';
+
+  return (
+    <motion.div
+      className="absolute left-1/2 top-1/2 z-40 block origin-center text-left outline-none"
+      style={{
+        top: styleInfo.top,
+        left: styleInfo.left,
+        width: `calc(${styleInfo.width} + clamp(6rem, 7vw, 8.5rem))`,
+        zIndex: 40,
+        rotate: 0,
+        translateX: '-50%',
+        translateY: '-50%'
+      }}
+      initial={false}
+      animate={
+        reduceMotion
+          ? { opacity: 1, scale: 1 }
+          : closing
+            ? { opacity: 0.985, scale: 0.996 }
+            : { opacity: 1, scale: 1 }
+      }
+      transition={{ duration: reduceMotion ? 0.12 : 0.24, ease: [0.2, 0.95, 0.26, 1] }}
+    >
+      <div className="relative">
+        <div
+          aria-hidden="true"
+          className="absolute left-[6%] top-[-0.95rem] h-9 w-[72%] shadow-[0_22px_44px_rgba(0,0,0,0.24)]"
+        >
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(244,237,224,0.98),rgba(226,213,192,0.98))]" />
+          <div className="absolute inset-x-4 top-6 h-px bg-[linear-gradient(90deg,transparent,rgba(74,55,35,0.16),transparent)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(145deg,transparent_45%,rgba(88,63,38,0.09)_46%,transparent_47%)] opacity-55" />
+        </div>
+
+        <motion.div
+          id={panelId}
+          role="region"
+          aria-labelledby={buttonId}
+          className={cn(
+            'relative text-left shadow-[0_30px_78px_rgba(0,0,0,0.38)]',
+            showContent ? 'bg-[#e7dccb]' : 'bg-[#e3d6c0]'
+          )}
+          style={{ perspective: undefined }}
+          initial={false}
+          animate={{ height: 'auto', opacity: 1 }}
+          transition={{ duration: reduceMotion ? 0.12 : 0.24, ease: [0.2, 0.95, 0.26, 1] }}
+        >
+          <div className="relative">
+            <div className={cn('absolute inset-0 bg-gradient-to-br', PAPER_TONES[styleInfo.tone])} />
+            <Image
+              src="/images/paper.png"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 90vw, 30vw"
+              className="object-cover opacity-36 mix-blend-soft-light"
+            />
+            <GrainLayer />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0)_28%,rgba(77,55,33,0.05)_100%)] opacity-55" />
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0,transparent_47%,rgba(77,55,33,0.08)_49%,transparent_52%)] opacity-40" />
+
+            <motion.div
+              aria-hidden="true"
+              className="absolute inset-x-0 top-0 h-14"
+            >
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(243,236,223,0.98),rgba(226,214,195,0.96))]" />
+              <div className="absolute inset-x-5 top-9 h-px bg-[linear-gradient(90deg,transparent,rgba(76,56,36,0.16),transparent)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,transparent_45%,rgba(88,63,38,0.09)_46%,transparent_47%)] opacity-45" />
+            </motion.div>
+
+            <div className="relative z-10 px-5 pb-5 pt-5 sm:px-6 sm:pb-6 sm:pt-6">
+              <div className="flex items-start justify-between gap-5">
+                <span className="font-ui text-[0.58rem] uppercase tracking-[0.36em] text-[#8b6f46]">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <button
+                  type="button"
+                  onClick={onToggle}
+                  className="font-ui text-[0.58rem] uppercase tracking-[0.36em] text-[#8b6f46] transition duration-300 hover:text-[#6f583d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-0"
+                >
+                  Keep back
+                </button>
+              </div>
+
+              <h3 className="mt-4 max-w-[25rem] font-display text-[clamp(1.34rem,2vw,2.05rem)] leading-[1.02] tracking-[-0.03em] text-[#24170f] text-balance">
+                {item.question}
+              </h3>
+
+              <div className="mt-5 h-px bg-[linear-gradient(90deg,transparent,rgba(76,56,36,0.2),transparent)]" />
+
+              {showContent ? (
+                <motion.div
+                  key={item.question}
+                  initial={false}
+                  animate={closing ? { opacity: 0 } : { opacity: 1 }}
+                  transition={{ duration: reduceMotion ? 0.12 : 0.22, ease: [0.2, 0.95, 0.26, 1] }}
+                  className="pt-5"
+                >
+                  <p className="max-w-[26rem] text-[0.98rem] leading-[1.88] text-[#2b1f14] sm:text-[1rem]">
+                    {item.answer}
+                  </p>
+                </motion.div>
+              ) : null}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
   );
 }
 
 export function FaqSection({ items }: FaqSectionProps) {
   const sectionId = useId();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [phase, setPhase] = useState<NotePhase>('closed');
+  const [state, setState] = useState<NoteState>('closed');
   const queuedIndexRef = useRef<number | null>(null);
   const timerRef = useRef<number | null>(null);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const reduceMotion = useReducedMotion();
+
   const openMs = reduceMotion ? 160 : OPEN_MS;
-  const closeContentMs = reduceMotion ? 90 : CLOSE_CONTENT_MS;
-  const closeFoldMs = reduceMotion ? 120 : CLOSE_FOLD_MS;
+  const closeMs = reduceMotion ? 120 : CLOSE_MS;
 
   const clearTimer = () => {
     if (timerRef.current !== null) {
@@ -221,65 +350,63 @@ export function FaqSection({ items }: FaqSectionProps) {
     }
   };
 
-  const openAt = (index: number) => {
+  useEffect(() => {
+    return () => clearTimer();
+  }, []);
+
+  const openNote = (index: number) => {
     clearTimer();
     queuedIndexRef.current = null;
     setActiveIndex(index);
-    setPhase('opening');
+    setState('opening');
     timerRef.current = window.setTimeout(() => {
-      setPhase('open');
+      setState('open');
       timerRef.current = null;
     }, openMs);
   };
 
-  const finishClose = () => {
-    const nextIndex = queuedIndexRef.current;
-    queuedIndexRef.current = null;
-
-    if (nextIndex === null) {
-      setActiveIndex(null);
-      setPhase('closed');
-      return;
-    }
-
-    setActiveIndex(nextIndex);
-    setPhase('opening');
-    timerRef.current = window.setTimeout(() => {
-      setPhase('open');
-      timerRef.current = null;
-    }, openMs);
-  };
-
-  const closeCurrent = () => {
+  const closeThenMaybeOpen = () => {
     clearTimer();
-    setPhase('closing-content');
+    setState('closing');
     timerRef.current = window.setTimeout(() => {
-      setPhase('closing-fold');
-      timerRef.current = window.setTimeout(() => {
+      const nextIndex = queuedIndexRef.current;
+      queuedIndexRef.current = null;
+
+      if (nextIndex === null) {
+        setActiveIndex(null);
+        setState('closed');
         timerRef.current = null;
-        finishClose();
-      }, closeFoldMs);
-    }, closeContentMs);
+        return;
+      }
+
+      setActiveIndex(nextIndex);
+      setState('opening');
+      timerRef.current = window.setTimeout(() => {
+        setState('open');
+        timerRef.current = null;
+      }, openMs);
+    }, closeMs);
   };
 
-  const toggleIndex = (index: number) => {
+  const toggle = (index: number) => {
     if (activeIndex === index) {
-      if (phase === 'closed') {
-        openAt(index);
-      } else {
-        queuedIndexRef.current = null;
-        closeCurrent();
+      if (state === 'closed') {
+        openNote(index);
+        return;
       }
+
+      queuedIndexRef.current = null;
+      closeThenMaybeOpen();
       return;
     }
 
     if (activeIndex === null) {
-      openAt(index);
+      openNote(index);
       return;
     }
 
     queuedIndexRef.current = index;
-    closeCurrent();
+    closeThenMaybeOpen();
   };
 
   const focusIndex = (index: number) => {
@@ -303,83 +430,99 @@ export function FaqSection({ items }: FaqSectionProps) {
     if (event.key === 'Escape' && activeIndex !== null) {
       event.preventDefault();
       queuedIndexRef.current = null;
-      closeCurrent();
+      closeThenMaybeOpen();
     }
   };
 
-  useEffect(() => {
-    return () => {
-      clearTimer();
-    };
-  }, []);
+  const noteStyles = useMemo(() => NOTE_STYLES, []);
 
   return (
     <section
-      id="faq"
-      className="section-grid relative overflow-hidden bg-background px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]"
+      id="before-you-arrive"
+      className="relative overflow-hidden bg-background px-6 py-[7.5rem] sm:px-8 lg:px-10 lg:py-[9rem]"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-      >
-        <Image
-          src="/images/paper.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-28 mix-blend-soft-light"
-        />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_42%),radial-gradient(circle_at_60%_70%,rgba(185,151,91,0.02),transparent_28%),linear-gradient(180deg,rgba(9,9,9,0.28),rgba(9,9,9,0.62))]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.045),transparent_44%),radial-gradient(circle_at_20%_16%,rgba(185,151,91,0.06),transparent_18%),radial-gradient(circle_at_84%_14%,rgba(255,255,255,0.03),transparent_16%),linear-gradient(180deg,rgba(9,9,9,0.22),rgba(9,9,9,0.72))]" />
+        <div className="absolute inset-0 animate-[floatLight_18s_ease-in-out_infinite] bg-[radial-gradient(circle_at_25%_25%,rgba(255,242,216,0.06),transparent_18%),radial-gradient(circle_at_72%_20%,rgba(255,244,220,0.04),transparent_12%),radial-gradient(circle_at_58%_64%,rgba(185,151,91,0.03),transparent_20%)] opacity-60" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.84fr,1.16fr] lg:gap-16">
-        <div className="lg:sticky lg:top-28 self-start max-w-md space-y-5">
+      <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.82fr,1.18fr] lg:items-start lg:gap-16">
+        <div className="max-w-md space-y-5 lg:sticky lg:top-28">
           <p className="font-ui text-[0.72rem] uppercase tracking-[0.34em] text-gold/80">
-            FAQ
+            BEFORE YOU ARRIVE
           </p>
-          <h2 className="font-display text-[clamp(2.35rem,4.6vw,4.8rem)] leading-[0.98] tracking-[-0.035em] text-text text-balance">
-            Questions,
+          <h2 className="font-display text-[clamp(2.5rem,4.6vw,5rem)] leading-[0.96] tracking-[-0.035em] text-text text-balance">
+            A few things
             <br />
-            answered quietly.
+            you may wonder.
           </h2>
-          <p className="max-w-sm text-pretty text-[0.95rem] leading-7 text-muted">
-            Practical details, without disturbing the rhythm.
+          <p className="max-w-sm text-pretty text-[0.96rem] leading-7 text-muted">
+            Everything you need to know, shared with the same care as the retreat itself.
           </p>
         </div>
 
-        <div className="relative min-h-[28rem]">
-          <div className="relative flex flex-col">
-            {items.map((item, index) => {
-              const buttonId = `${sectionId}-faq-button-${index}`;
-              const panelId = `${sectionId}-faq-panel-${index}`;
-              const itemPhase = activeIndex === index ? phase : 'closed';
+        <div className="relative flex items-center justify-center">
+          <div className="journal-frame relative w-[min(100%,72rem)] aspect-[1.38/1]">
+            <div className="absolute inset-0 bg-[#120f0c] shadow-[0_32px_70px_rgba(0,0,0,0.46)]" />
+            <div className="absolute inset-[1.1rem] bg-[#17120f]" />
+            <div className="absolute inset-[1.45rem] bg-[#201813]">
+              <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.06)_12%,rgba(255,255,255,0.08)_50%,rgba(255,255,255,0.04)_88%,transparent)]" />
+              <div className="absolute inset-x-0 top-0 h-16 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.02),transparent_42%)]" />
+              <Image
+                src="/images/paper.png"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 72rem"
+                className="object-cover opacity-26 mix-blend-soft-light"
+              />
 
-              return (
-                <motion.div
-                  key={item.question}
-                  layout
-                  transition={{ duration: reduceMotion ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className={cn(index === 0 ? 'relative' : 'relative mt-[-0.8rem] sm:mt-[-1rem]')}
-                  style={{
-                    zIndex: activeIndex === index ? 50 : 30 - index
-                  }}
-                >
-                  <FaqPaperNote
-                    item={item}
-                    index={index}
-                    phase={itemPhase}
-                    active={activeIndex === index}
-                    buttonId={buttonId}
-                    panelId={panelId}
-                    buttonRef={(node) => {
-                      buttonRefs.current[index] = node;
-                    }}
-                    onToggle={() => toggleIndex(index)}
-                    onKeyDown={(event) => onKeyDown(index, event)}
-                  />
-                </motion.div>
-              );
-            })}
+              <div className="absolute inset-y-0 left-[6%] w-[38%] bg-[linear-gradient(90deg,rgba(249,243,232,0.86),rgba(234,224,207,0.9)_68%,rgba(217,205,186,0.95))] shadow-[inset_-1px_0_0_rgba(90,65,40,0.12),inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
+              <div className="absolute inset-y-0 right-[6%] w-[38%] bg-[linear-gradient(270deg,rgba(249,243,232,0.86),rgba(234,224,207,0.9)_68%,rgba(217,205,186,0.95))] shadow-[inset_1px_0_0_rgba(90,65,40,0.12),inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
+              <div className="absolute inset-y-0 left-1/2 w-[8%] -translate-x-1/2 bg-[linear-gradient(90deg,rgba(43,31,22,0.18),rgba(16,12,10,0.34)_50%,rgba(43,31,22,0.18))] opacity-75 blur-[1px]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.15),transparent_18%,transparent_82%,rgba(0,0,0,0.18))]" />
+              <GrainLayer />
+
+              <LayoutGroup id={sectionId}>
+                <div className="absolute inset-0">
+                  {items.map((item, index) => {
+                    const buttonId = `${sectionId}-note-${index}-button`;
+                    const panelId = `${sectionId}-note-${index}-panel`;
+                    const styleInfo = noteStyles[index] ?? noteStyles[noteStyles.length - 1];
+                    const itemState = activeIndex === index ? state : 'closed';
+
+                    return activeIndex === index ? (
+                    <OpenNote
+                      key={item.question}
+                      item={item}
+                      index={index}
+                      styleInfo={styleInfo}
+                      state={itemState}
+                      buttonId={buttonId}
+                      panelId={panelId}
+                      reduceMotion={!!reduceMotion}
+                      onToggle={() => toggle(index)}
+                    />
+                  ) : (
+                      <TuckedNotePreview
+                        key={item.question}
+                        item={item}
+                        index={index}
+                        styleInfo={styleInfo}
+                        active={false}
+                        onOpen={() => toggle(index)}
+                        buttonRef={(node) => {
+                          buttonRefs.current[index] = node;
+                        }}
+                        buttonId={buttonId}
+                        panelId={panelId}
+                        onKeyDown={(event) => onKeyDown(index, event)}
+                      />
+                    );
+                  })}
+                </div>
+              </LayoutGroup>
+            </div>
           </div>
         </div>
       </div>
