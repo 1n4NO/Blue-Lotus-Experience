@@ -95,28 +95,37 @@ export function SiteHeader() {
 
       <AnimatePresence>
         {open ? (
-          <motion.div
-            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -12, filter: 'blur(10px)' }}
-            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
-            exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8, filter: 'blur(8px)' }}
-            transition={{ duration: reduceMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-panel mx-4 mt-2 rounded-2xl border-white/10 px-5 py-6 shadow-soft lg:hidden"
-          >
-            <div className="grid gap-1">
-              {navigation.map((link, index) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-between border-b border-white/6 py-4 font-ui text-sm uppercase tracking-[0.28em] text-text"
-                  style={{ animationDelay: `${index * 70}ms` }}
-                >
-                  {link.label}
-                  <span className="text-white/30">0{index + 1}</span>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          <div className="lg:hidden">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[-1] bg-black/40 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -12, filter: 'blur(10px)' }}
+              animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8, filter: 'blur(8px)' }}
+              transition={{ duration: reduceMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
+              className="glass-panel mx-4 mt-2 rounded-2xl border-white/10 px-5 py-6 shadow-soft"
+            >
+              <div className="grid gap-1">
+                {navigation.map((link, index) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-between border-b border-white/6 py-4 font-ui text-sm uppercase tracking-[0.28em] text-text"
+                    style={{ animationDelay: `${index * 70}ms` }}
+                  >
+                    {link.label}
+                    <span className="text-white/30">0{index + 1}</span>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         ) : null}
       </AnimatePresence>
     </header>

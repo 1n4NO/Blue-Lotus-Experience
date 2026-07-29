@@ -27,7 +27,8 @@ export default function Icon() {
             position: 'absolute',
             inset: 48,
             borderRadius: 256,
-            border: '4px solid rgba(185, 151, 91, 0.95)'
+            border: '4px solid rgba(185, 151, 91, 0.95)',
+            boxShadow: '0 0 0 1px rgba(255,255,255,0.06) inset'
           }}
         />
         <div
@@ -36,7 +37,7 @@ export default function Icon() {
             height: 220,
             borderRadius: 120,
             background:
-              'radial-gradient(circle at 50% 45%, rgba(185,151,91,0.36), rgba(9,9,9,0.1) 56%), linear-gradient(180deg, rgba(85,107,47,0.85), rgba(7,7,7,0.2))',
+              'radial-gradient(circle at 50% 45%, rgba(185,151,91,0.34), rgba(9,9,9,0.08) 58%), linear-gradient(180deg, rgba(85,107,47,0.78), rgba(7,7,7,0.18))',
             boxShadow: '0 16px 60px rgba(0, 0, 0, 0.45)',
             display: 'flex',
             alignItems: 'center',

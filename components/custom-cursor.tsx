@@ -47,12 +47,12 @@ export function CustomCursor() {
         <motion.div
           animate={{ scale: hovering ? 1.12 : 1 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="h-7 w-7 rounded-full border border-white/45 bg-white/5 backdrop-blur-md"
+          className="h-8 w-8 rounded-full border border-white/45 bg-white/5 shadow-[0_0_0_1px_rgba(0,0,0,0.2)] backdrop-blur-md"
         />
         <motion.div
           animate={{ opacity: hovering ? 1 : 0.82, y: hovering ? 0 : 1 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute left-8 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-black/45 px-3 py-1 font-ui text-[0.58rem] uppercase tracking-[0.3em] text-text/90 backdrop-blur-lg"
+          className="absolute left-9 top-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-black/55 px-3.5 py-1.5 font-ui text-[0.56rem] uppercase tracking-[0.34em] text-text/90 backdrop-blur-xl"
         >
           Slow Down
         </motion.div>

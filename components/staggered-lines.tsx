@@ -40,10 +40,14 @@ export function StaggeredLines({
         <motion.p
           key={index}
           variants={{
-            hidden: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24, filter: 'blur(8px)' },
-            show: reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, filter: 'blur(0px)' }
+            hidden: reduceMotion
+              ? { opacity: 1 }
+              : { opacity: 0, y: 20, filter: 'blur(10px)', clipPath: 'inset(0 0 18% 0)' },
+            show: reduceMotion
+              ? { opacity: 1 }
+              : { opacity: 1, y: 0, filter: 'blur(0px)', clipPath: 'inset(0 0 0% 0)' }
           }}
-          transition={{ duration: reduceMotion ? 0 : 0.95, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: reduceMotion ? 0 : 1.05, ease: [0.22, 1, 0.36, 1] }}
           className={cn(lineClassName)}
         >
           {line}

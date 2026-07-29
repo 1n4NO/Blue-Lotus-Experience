@@ -1,6 +1,8 @@
 import type {
+  ApplicationStep,
   ExperienceItem,
   GalleryImage,
+  FaqItem,
   NavLink,
   RetreatDay
 } from '@/types/site';
@@ -56,6 +58,14 @@ export const experienceItems: ExperienceItem[] = [
       'Space to be together without performance, allowing silence to become part of the practice.'
   }
 ];
+
+export const experienceIllustrations = [
+  { title: 'Forest Walks', kind: 'forest' },
+  { title: 'Tea Ceremony', kind: 'tea' },
+  { title: 'Campfire Conversations', kind: 'fire' },
+  { title: 'Journaling', kind: 'journal' },
+  { title: 'Shared Silence', kind: 'silence' }
+] as const;
 
 export const retreatSchedule: RetreatDay[] = [
   {
@@ -190,6 +200,73 @@ export const bringItems = [
   'An open mind'
 ] as const;
 
+export const whoThisIsFor = [
+  'Busy professionals',
+  'Founders',
+  'Creatives',
+  'Anyone craving stillness'
+] as const;
+
+export const whatToExpect = [
+  'Forest Walks',
+  'Tea Ceremony',
+  'Journaling',
+  'Shared Meals',
+  'Campfire',
+  'Reflection'
+] as const;
+
+export const faqItems: FaqItem[] = [
+  {
+    question: 'Is accommodation included?',
+    answer:
+      'Accommodation is not included in the retreat fee. We can share nearby stays in Kodaikanal if you would like a short list.'
+  },
+  {
+    question: 'What happens after I apply?',
+    answer:
+      'Applications are reviewed personally. If selected, you receive a direct confirmation and payment details by email.'
+  },
+  {
+    question: 'Can beginners attend?',
+    answer:
+      'Yes. No experience with meditation, journaling, or ceremony is required. The retreat is designed to be welcoming.'
+  },
+  {
+    question: 'What if it rains?',
+    answer:
+      'Rain is part of the experience in the forest. The schedule adapts gently, and indoor moments are held when needed.'
+  },
+  {
+    question: 'Can I cancel?',
+    answer:
+      'If your plans change, write to us as early as possible. We review cancellations personally and respond with care.'
+  }
+];
+
+export const applicationProcess: ApplicationStep[] = [
+  {
+    title: 'Apply',
+    detail: 'Tell us a little about yourself and why this retreat feels relevant right now.'
+  },
+  {
+    title: 'Review',
+    detail: 'Applications are read personally so the group stays balanced and intentionally small.'
+  },
+  {
+    title: 'Acceptance',
+    detail: 'If selected, you receive a direct invitation with the next steps and payment details.'
+  },
+  {
+    title: 'Payment',
+    detail: 'Secure your place with the retreat fee once your place has been confirmed.'
+  },
+  {
+    title: 'Welcome',
+    detail: 'You receive a quiet welcome note, practical guidance, and a gentle arrival rhythm.'
+  }
+];
+
 export const principles = [
   'Presence over productivity.',
   'Curiosity over certainty.',
@@ -205,18 +282,25 @@ export const whyEleven = [
 ] as const;
 
 export const galleryImages: GalleryImage[] = [
-  { src: '/images/gallery/1.png', alt: 'Blue lotus flower in deep shadow with dew.', span: 'tall' },
-  { src: '/images/gallery/2.png', alt: 'Rain-soaked rainforest floor and soft mist.', span: 'wide' },
-  { src: '/images/gallery/3.png', alt: 'Forest path framed by moss, trunks, and filtered light.', span: 'default' },
-  { src: '/images/gallery/4.png', alt: 'Single water droplet on a leaf in low light.', span: 'default' }
+  { src: '/images/gallery/6.png', alt: 'Blue lotus tea ceremony.', span: 'wide' },
+  { src: '/images/gallery/7.png', alt: 'Rest and reflection in the forest.', span: 'tall' },
+  { src: '/images/gallery/8.png', alt: 'Solo reflection in the forest.', span: 'default' },
+  { src: '/images/gallery/9.png', alt: 'Mushroom tea in a forest setting.', span: 'default' },
+  { src: '/images/gallery/11.png', alt: 'Guided forest walk.', span: 'default' }
 ];
 
 export const applicationDetails = {
-  month: 'October 2026',
+  month: 'October',
   location: 'Kodaikanal',
   capacityNumber: '11',
   capacityLabel: 'Participants',
   note: 'Applications reviewed personally.'
+} as const;
+
+export const applicationCard = {
+  duration: '2 Days',
+  participants: '11 Participants',
+  price: '₹11,111',
 } as const;
 
 export const footerDetails = {

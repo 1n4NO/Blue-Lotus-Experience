@@ -14,6 +14,8 @@
 
 html {
   scroll-behavior: auto;
+  scrollbar-color: rgba(185, 151, 91, 0.45) rgba(255, 255, 255, 0.04);
+  scrollbar-width: thin;
 }
 
 body {
@@ -69,7 +71,7 @@ button {
 }
 
 :focus-visible {
-  outline: 1px solid rgba(247, 246, 242, 0.78);
+  outline: 1px solid rgba(247, 246, 242, 0.8);
   outline-offset: 3px;
 }
 
@@ -103,13 +105,32 @@ button {
 }
 
 @layer utilities {
-.font-display {
+  .font-display {
     font-family: var(--font-display), 'Libre Baskerville', serif;
   }
 
   .font-ui {
     font-family: var(--font-ui), 'General Sans', Inter, system-ui, sans-serif;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(9, 9, 9, 1);
+  border-radius: 999px;
+  background: rgba(185, 151, 91, 0.45);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 151, 91, 0.62);
 }
 
 @keyframes loading {

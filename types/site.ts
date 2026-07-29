@@ -14,6 +14,16 @@ export type ExperienceItem = {
   description: string;
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type ApplicationStep = {
+  title: string;
+  detail: string;
+};
+
 export type RhythmItem = {
   time: string;
   title: string;

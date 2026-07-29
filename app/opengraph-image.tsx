@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           background:
-            'radial-gradient(circle at top left, rgba(85,107,47,0.4), transparent 26%), linear-gradient(180deg, #0d0d0d 0%, #090909 100%)',
+            'radial-gradient(circle at 18% 18%, rgba(185,151,91,0.26), transparent 22%), radial-gradient(circle at 82% 18%, rgba(85,107,47,0.2), transparent 20%), linear-gradient(180deg, #0f0f0f 0%, #090909 100%)',
           color: '#f7f6f2',
           padding: 64,
           fontFamily: 'Inter'
@@ -32,7 +32,8 @@ export default function OpenGraphImage() {
               width: 52,
               height: 52,
               borderRadius: 999,
-              border: '2px solid rgba(185, 151, 91, 0.95)'
+              border: '2px solid rgba(185, 151, 91, 0.95)',
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.06) inset'
             }}
           />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -47,14 +48,15 @@ export default function OpenGraphImage() {
           <div
             style={{
               fontFamily: 'serif',
-              fontSize: 86,
+              fontSize: 84,
               lineHeight: 0.95,
-              letterSpacing: -2
+              letterSpacing: -2.4,
+              maxWidth: 860
             }}
           >
             Come home to yourself.
           </div>
-          <div style={{ fontSize: 28, lineHeight: 1.5, maxWidth: 700, color: '#d5d0c8' }}>
+          <div style={{ fontSize: 28, lineHeight: 1.45, maxWidth: 720, color: '#d5d0c8' }}>
             Two days in the forests of Kodaikanal. Limited to eleven participants.
           </div>
         </div>
