@@ -65,42 +65,42 @@ export function LoadingScreen() {
         className="relative z-10 flex flex-col items-center px-6 text-center"
       >
         <div className="relative flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52">
-          <motion.div
+          {/* <motion.div
             aria-hidden="true"
             initial={reduceMotion ? { opacity: 0.35 } : { opacity: 0, scale: 0.65 }}
             animate={reduceMotion ? { opacity: 0.35 } : { opacity: [0, 0.48, 0.34], scale: [0.65, 1, 1.04] }}
             transition={bloomTransition}
             className="absolute inset-0 rounded-full border border-white/8 bg-white/[0.015]"
-          />
+          /> */}
 
-          <motion.span
+          {/* <motion.span
             aria-hidden="true"
             initial={reduceMotion ? { opacity: 0.32, scale: 1 } : { opacity: 0, scale: 0.5 }}
             animate={reduceMotion ? { opacity: 0.32, scale: 1 } : { opacity: [0, 0.34, 0.26], scale: [0.5, 1, 1.06] }}
             transition={{ ...bloomTransition, delay: 0.08 }}
             className="absolute left-1/2 top-[8%] h-[56%] w-[22%] -translate-x-1/2 rounded-[999px] bg-[linear-gradient(180deg,rgba(185,151,91,0.34),rgba(185,151,91,0.08)_65%,transparent)] blur-[1px]"
-          />
-          <motion.span
+          /> */}
+          {/* <motion.span
             aria-hidden="true"
             initial={reduceMotion ? { opacity: 0.28, scale: 1 } : { opacity: 0, scale: 0.5 }}
             animate={reduceMotion ? { opacity: 0.28, scale: 1 } : { opacity: [0, 0.32, 0.24], scale: [0.5, 1, 1.05] }}
             transition={{ ...bloomTransition, delay: 0.16 }}
             className="absolute left-[14%] top-1/2 h-[36%] w-[20%] -translate-y-1/2 rounded-[999px] bg-[linear-gradient(180deg,rgba(247,246,242,0.22),rgba(247,246,242,0.04)_72%,transparent)] blur-[1px]"
-          />
-          <motion.span
+          /> */}
+          {/* <motion.span
             aria-hidden="true"
             initial={reduceMotion ? { opacity: 0.28, scale: 1 } : { opacity: 0, scale: 0.5 }}
             animate={reduceMotion ? { opacity: 0.28, scale: 1 } : { opacity: [0, 0.32, 0.24], scale: [0.5, 1, 1.05] }}
             transition={{ ...bloomTransition, delay: 0.24 }}
             className="absolute right-[14%] top-1/2 h-[36%] w-[20%] -translate-y-1/2 rounded-[999px] bg-[linear-gradient(180deg,rgba(247,246,242,0.22),rgba(247,246,242,0.04)_72%,transparent)] blur-[1px]"
-          />
-          <motion.span
+          /> */}
+          {/* <motion.span
             aria-hidden="true"
             initial={reduceMotion ? { opacity: 0.28, scale: 1 } : { opacity: 0, scale: 0.5 }}
             animate={reduceMotion ? { opacity: 0.28, scale: 1 } : { opacity: [0, 0.32, 0.24], scale: [0.5, 1, 1.05] }}
             transition={{ ...bloomTransition, delay: 0.32 }}
             className="absolute left-1/2 top-[58%] h-[22%] w-[42%] -translate-x-1/2 rounded-[999px] bg-[linear-gradient(180deg,rgba(185,151,91,0.24),rgba(185,151,91,0.05)_70%,transparent)] blur-[1px]"
-          />
+          /> */}
 
           <motion.div
             initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.88 }}

@@ -280,7 +280,6 @@ function OpenNote({
             <GrainLayer />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0)_28%,rgba(77,55,33,0.05)_100%)] opacity-55" />
             <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0,transparent_47%,rgba(77,55,33,0.08)_49%,transparent_52%)] opacity-40" />
-
             <motion.div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-14"
@@ -482,7 +481,42 @@ export function FaqSection({ items }: FaqSectionProps) {
               <div className="absolute inset-y-0 left-1/2 w-[8%] -translate-x-1/2 bg-[linear-gradient(90deg,rgba(43,31,22,0.18),rgba(16,12,10,0.34)_50%,rgba(43,31,22,0.18))] opacity-75 blur-[1px]" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.15),transparent_18%,transparent_82%,rgba(0,0,0,0.18))]" />
               <GrainLayer />
-
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[28.25rem] top-[22%] z-9 h-24 w-24 -translate-y-1/2 rotate-[-10deg] opacity-92"
+              >
+                <Image
+                  src="/images/moss.png"
+                  alt=""
+                  fill
+                  sizes="96px"
+                  className="object-contain"
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-[72.5%] top-[59%] z-1 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[14deg] opacity-88"
+              >
+                <Image
+                  src="/images/petal.png"
+                  alt=""
+                  fill
+                  sizes="80px"
+                  className="object-contain"
+                />
+              </div>
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[5.75%] bottom-[1.1rem] z-20 h-20 w-20 rotate-[7deg] opacity-92"
+              >
+                <Image
+                  src="/images/pressed-lotus.png"
+                  alt=""
+                  fill
+                  sizes="80px"
+                  className="object-contain"
+                />
+              </div>
               <LayoutGroup id={sectionId}>
                 <div className="absolute inset-0">
                   {items.map((item, index) => {
@@ -492,18 +526,18 @@ export function FaqSection({ items }: FaqSectionProps) {
                     const itemState = activeIndex === index ? state : 'closed';
 
                     return activeIndex === index ? (
-                    <OpenNote
-                      key={item.question}
-                      item={item}
-                      index={index}
-                      styleInfo={styleInfo}
-                      state={itemState}
-                      buttonId={buttonId}
-                      panelId={panelId}
-                      reduceMotion={!!reduceMotion}
-                      onToggle={() => toggle(index)}
-                    />
-                  ) : (
+                      <OpenNote
+                        key={item.question}
+                        item={item}
+                        index={index}
+                        styleInfo={styleInfo}
+                        state={itemState}
+                        buttonId={buttonId}
+                        panelId={panelId}
+                        reduceMotion={!!reduceMotion}
+                        onToggle={() => toggle(index)}
+                      />
+                    ) : (
                       <TuckedNotePreview
                         key={item.question}
                         item={item}
