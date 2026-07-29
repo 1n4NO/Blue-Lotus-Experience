@@ -218,7 +218,7 @@ export const applicationDetails = {
 } as const;
 
 export const footerDetails = {
-  instagram: 'https://instagram.com/bluelotusexperience',
-  email: 'hello@bluelotusexperience.com',
+  instagram: 'https://www.instagram.com/blue.lotus.experience/',
+  email: 'bluelotusexperience@duck.com',
   location: 'Kodaikanal, Tamil Nadu'
 } as const;

@@ -339,7 +339,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 font-ui text-[0.68rem] uppercase tracking-[0.28em] text-muted transition duration-500 ease-calm hover:text-text"
                 >
                   <Mail className="h-4 w-4" />
-                  hello@bluelotusexperience.com
+                  bluelotusexperience@duck.com
                 </Link>
               </div>
             </Reveal>
