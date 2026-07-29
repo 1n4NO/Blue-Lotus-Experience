@@ -15,7 +15,6 @@ import {
   includedItems,
   philosophyLines,
   retreatSchedule,
-  whatToExpect,
   whoThisIsFor,
   whyEleven
 } from '@/content/site';
@@ -153,8 +152,8 @@ export default function HomePage() {
               <RetreatTimeline days={retreatSchedule} />
             </div>
 
-            <div className="mt-14 grid gap-10 sm:gap-12 lg:grid-cols-3">
-              <Reveal>
+            <div className="mt-14 flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+              <Reveal className="lg:max-w-[28rem] lg:flex-1">
                 <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                   Included
                 </p>
@@ -167,20 +166,7 @@ export default function HomePage() {
                 </ul>
               </Reveal>
 
-              <Reveal delay={0.08}>
-                <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
-                  What To Expect
-                </p>
-                <ul className="mt-4 space-y-3.5">
-                  {whatToExpect.map((item) => (
-                    <li key={item} className="border-b border-white/6 pb-2.5 text-sm leading-[1.7] text-muted last:border-b-0 last:pb-0">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-
-              <Reveal delay={0.16}>
+              <Reveal delay={0.16} className="lg:max-w-[28rem] lg:flex-1">
                 <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                   What To Bring
                 </p>
@@ -225,8 +211,8 @@ export default function HomePage() {
         <section id="gallery" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <SectionTitle
-              title="A few unguarded moments."
-              description="What stillness looks like, from the outside."
+              title="A few unguarded hours."
+              description="Experience what stillness looks like, from the inside."
             />
 
             <div className="mt-12 grid auto-rows-[14rem] gap-4 md:grid-cols-3 md:auto-rows-[11rem]">
@@ -317,27 +303,11 @@ export default function HomePage() {
           />
         </section>
 
-        <section id="what-to-expect" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr,1.15fr] lg:gap-16">
-            <div className="lg:sticky lg:top-28 self-start">
-              <SectionTitle
-                title="A checklist of the rhythm ahead."
-                description="The retreat is structured, but never crowded. Each element exists to support calm, not momentum."
-              />
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {whatToExpect.map((item, index) => (
-                <Reveal
-                  key={item}
-                  delay={index * 0.05}
-                  className="text-[0.83rem] uppercase tracking-[0.22em] text-text/90"
-                >
-                  <span className="mr-2.5 text-gold/80">✓</span>
-                  {item}
-                </Reveal>
-              ))}
-            </div>
+        <section className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+          <div className="mx-auto flex max-w-7xl min-h-[28vh] items-end justify-center lg:min-h-[34vh]">
+            <blockquote className="max-w-3xl text-center font-display text-[clamp(1.9rem,4vw,3.8rem)] leading-[1.02] tracking-[-0.03em] text-text text-balance">
+              Nothing in the forest is in a hurry.
+            </blockquote>
           </div>
         </section>
 

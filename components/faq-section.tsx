@@ -307,7 +307,7 @@ function JournalNote({
             />
           ) : null}
 
-          {index === 1 ? (
+          {index === 1 && phase === 'open' ? (
             <NoteArtifact
               src="/images/petal.png"
               size={88}
@@ -594,7 +594,13 @@ export function FaqSection({ items }: FaqSectionProps) {
                 <div className="absolute inset-y-0 left-1/2 w-[6%] -translate-x-1/2 bg-[linear-gradient(90deg,rgba(16,12,10,0.14),rgba(9,7,6,0.34)_50%,rgba(16,12,10,0.14))] opacity-80 blur-[1px]" />
 				<div
 				aria-hidden="true"
-				className="pointer-events-none absolute right-[5%] top-[8%] z-10 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[120deg] opacity-88"
+				className="pointer-events-none absolute right-[15%] top-[8%] z-[25] h-40 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[0deg] opacity-88"
+				>
+				<Image src="/images/mushie.png" alt="" fill sizes="80px" className="object-contain" />
+				</div>
+				<div
+				aria-hidden="true"
+				className="pointer-events-none absolute right-[5%] top-[18%] z-[25] h-40 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[120deg] opacity-88"
 				>
 				<Image src="/images/fern.png" alt="" fill sizes="80px" className="object-contain" />
 				</div>
@@ -627,6 +633,13 @@ export function FaqSection({ items }: FaqSectionProps) {
                   className="pointer-events-none absolute right-[10.2%] bottom-[1.7rem] z-[14] h-40 w-40 rotate-[-18deg] opacity-88"
                 >
                   <Image src="/images/pencil.png" alt="" fill sizes="80px" className="object-contain" />
+                </div>
+
+				<div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-[10.2%] bottom-[15.7rem] z-[16] h-40 w-40 rotate-[-18deg] opacity-88"
+                >
+                  <Image src="/images/fern-3.png" alt="" fill sizes="80px" className="object-contain" />
                 </div>
 
                 <div
