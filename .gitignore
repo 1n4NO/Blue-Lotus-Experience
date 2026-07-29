@@ -1,0 +1,18 @@
+.next
+node_modules
+out
+dist
+.env.local
+.DS_Store
+*.log
+Assets/
+*.pdf
+tsconfig.tsbuildinfo
+Brand.md
+Captions.md
+Carousels.md
+Feed schedule.md
+Image positioning.md
+Insta feed.md
+Reel schedule.md
+Stories.md
