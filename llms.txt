@@ -1,0 +1,68 @@
+Blue Lotus Experience
+
+Luxury editorial retreat website for a two-day forest retreat in Kodaikanal.
+
+Tech stack
+- Next.js 15 App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Lenis smooth scrolling
+- Lucide icons
+
+Core intent
+- Calm, minimal, nature-first, slow-moving editorial experience
+- Avoid startup or SaaS aesthetics
+- Optimize for accessibility, performance, and reduced motion
+
+Important routes
+- `/` main experience
+- `/robots.txt`
+- `/sitemap.xml`
+- `/opengraph-image`
+- `/twitter-image`
+- `/icon`
+- `/apple-icon`
+- `/_not-found`
+
+Key files
+- `app/layout.tsx`
+- `app/page.tsx`
+- `app/loading.tsx`
+- `app/template.tsx`
+- `app/not-found.tsx`
+- `content/site.ts`
+- `components/hero-section.tsx`
+- `components/hero-media.tsx`
+- `components/retreat-timeline.tsx`
+- `components/faq-accordion.tsx`
+- `components/site-header.tsx`
+- `components/site-footer.tsx`
+- `components/audio-toggle.tsx`
+- `components/custom-cursor.tsx`
+- `components/loading-screen.tsx`
+- `styles/globals.css`
+- `lib/site.ts`
+- `types/site.ts`
+
+Content notes
+- Hero video: `/video/hero.mp4`
+- Gallery assets are sourced from `public/images/gallery/`
+- Brand logo uses `public/images/profile.png`
+- Apply URL: `https://deformity.ai/d/2CQYLc2wbqYl`
+- Contact email: `bluelotusexperience@duck.com`
+- Instagram: `https://www.instagram.com/blue.lotus.experience/`
+
+Design language
+- Background: `#090909`
+- Surface: `#111111`
+- Text: `#F7F6F2`
+- Muted: `#D5D0C8`
+- Accent: `#556B2F`
+- Gold: `#B9975B`
+
+Behavior notes
+- Respect `prefers-reduced-motion`
+- Use soft reveals, clip-path, opacity, blur, parallax, and slow transitions
+- Keep interactions subtle and editorial
+
