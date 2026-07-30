@@ -10,29 +10,46 @@ export function HeroMedia() {
   const vignetteOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [0.5, 0.56, 0.68]);
   const bottomFade = useTransform(scrollYProgress, [0, 0.4, 1], [0.84, 0.9, 0.96]);
 
+  if (reduceMotion) {
+    return (
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          src="/video/hero.mp4"
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/images/gallery/2.png"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(255,255,255,0.1),transparent_20%),radial-gradient(circle_at_75%_15%,rgba(185,151,91,0.18),transparent_18%),radial-gradient(circle_at_80%_78%,rgba(255,255,255,0.08),transparent_24%)] mix-blend-screen"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-black opacity-45" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04),rgba(0,0,0,0.64)_68%,rgba(0,0,0,0.9))]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#090909] via-[#090909]/90 to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),transparent_24%,transparent_70%,rgba(0,0,0,0.18))]"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.video
         src="/video/hero.mp4"
-        animate={
-          reduceMotion
-            ? undefined
-            : {
-                scale: [1, 1.04],
-                x: [0, 1.5, 0],
-                y: [0, -1, 0]
-              }
-        }
-        transition={
-          reduceMotion
-            ? undefined
-            : {
-                duration: 40,
-                repeat: Infinity,
-                repeatType: 'mirror',
-                ease: 'linear'
-              }
-        }
+        animate={{ scale: [1, 1.04], x: [0, 1.5, 0], y: [0, -1, 0] }}
+        transition={{ duration: 40, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }}
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
@@ -44,16 +61,8 @@ export function HeroMedia() {
 
       <motion.div
         aria-hidden="true"
-        animate={
-          reduceMotion
-            ? undefined
-            : {
-                opacity: [0.08, 0.16, 0.1],
-                x: ['-3%', '2%', '-1%'],
-                y: ['1%', '-1%', '0%']
-              }
-        }
-        transition={reduceMotion ? undefined : { duration: 26, repeat: Infinity, ease: 'linear' }}
+        animate={{ opacity: [0.08, 0.16, 0.1], x: ['-3%', '2%', '-1%'], y: ['1%', '-1%', '0%'] }}
+        transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
         className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(255,255,255,0.1),transparent_20%),radial-gradient(circle_at_75%_15%,rgba(185,151,91,0.18),transparent_18%),radial-gradient(circle_at_80%_78%,rgba(255,255,255,0.08),transparent_24%)] mix-blend-screen"
       />
 
@@ -77,15 +86,8 @@ export function HeroMedia() {
 
       <motion.div
         aria-hidden="true"
-        animate={
-          reduceMotion
-            ? undefined
-            : {
-                opacity: [0.08, 0.14, 0.1],
-                x: ['0%', '1.5%', '0%']
-              }
-        }
-        transition={reduceMotion ? undefined : { duration: 18, repeat: Infinity, ease: 'linear' }}
+        animate={{ opacity: [0.08, 0.14, 0.1], x: ['0%', '1.5%', '0%'] }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
         className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),transparent_24%,transparent_70%,rgba(0,0,0,0.18))]"
       />
     </div>

@@ -20,6 +20,11 @@ export function LoadingSequence({ children }: LoadingSequenceProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (reduceMotion) {
+      setIsLoading(false);
+      return;
+    }
+
     const holdTime = reduceMotion ? 900 : 2600;
     let mounted = true;
 
@@ -38,6 +43,10 @@ export function LoadingSequence({ children }: LoadingSequenceProps) {
       window.clearTimeout(revealTimer);
     };
   }, [pathname, reduceMotion]);
+
+  if (reduceMotion) {
+    return <>{children}</>;
+  }
 
   return (
     <>

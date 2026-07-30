@@ -8,7 +8,7 @@ export function SeoJsonLd() {
         '@type': 'Organization',
         name: siteConfig.name,
         url: siteConfig.url,
-        logo: `${siteConfig.url}/images/profile.png`,
+        logo: `${siteConfig.url}/images/logo-mark-instagram.png`,
         email: siteConfig.email,
         sameAs: [siteConfig.instagram]
       },

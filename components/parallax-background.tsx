@@ -28,6 +28,23 @@ export function ParallaxBackground({
 
   const y = useTransform(scrollYProgress, [0, 1], [-range, range]);
 
+  if (reduceMotion) {
+    return (
+      <div ref={ref} className={cn('absolute inset-0 overflow-hidden', className)}>
+        <div
+          aria-hidden
+          style={{ backgroundImage: `url(${src})` }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        />
+        <div
+          aria-hidden
+          style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }}
+          className="absolute inset-0"
+        />
+      </div>
+    );
+  }
+
   return (
     <div ref={ref} className={cn('absolute inset-0 overflow-hidden', className)}>
       <motion.div
