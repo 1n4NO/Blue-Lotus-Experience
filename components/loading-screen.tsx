@@ -109,7 +109,7 @@ export function LoadingScreen() {
             className="relative z-10 flex h-[6.75rem] w-[6.75rem] items-center justify-center rounded-full border border-white/10 bg-[#090909]/84 shadow-[0_20px_80px_rgba(0,0,0,0.36)] sm:h-32 sm:w-32"
           >
             <Image
-              src="/images/logo-mark.png"
+              src="/images/logo-mark-round.png"
               alt="Blue Lotus Experience"
               width={96}
               height={96}

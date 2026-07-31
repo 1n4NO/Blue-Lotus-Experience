@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <Image
-              src="/images/logo-mark.png"
+              src="/images/logo-mark-round.png"
               alt=""
               width={34}
               height={34}

@@ -5,7 +5,7 @@ import path from 'node:path';
 export const runtime = 'nodejs';
 
 const logoDataUrl = `data:image/png;base64,${fs
-  .readFileSync(path.join(process.cwd(), 'public/images/logo-mark.png'))
+  .readFileSync(path.join(process.cwd(), 'public/images/logo-mark-round.png'))
   .toString('base64')}`;
 
 export const size = {
@@ -25,17 +25,16 @@ export default function AppleIcon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#090909'
+          background: 'transparent'
         }}
       >
-        <div
+        <img
+          src={logoDataUrl}
+          alt=""
+          width="100%"
+          height="100%"
           style={{
-            width: '100%',
-            height: '100%',
-            backgroundImage: `url(${logoDataUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+            objectFit: 'contain'
           }}
         />
       </div>

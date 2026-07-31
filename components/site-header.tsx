@@ -46,7 +46,7 @@ export function SiteHeader() {
         >
           <Link href="/" aria-label="Blue Lotus Experience home" className="flex items-center gap-3">
             <Image
-              src="/images/logo-mark.png"
+              src="/images/logo-mark-round.png"
               alt=""
               width={34}
               height={34}
