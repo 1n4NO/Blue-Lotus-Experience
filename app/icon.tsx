@@ -1,6 +1,12 @@
 import { ImageResponse } from 'next/og';
+import fs from 'node:fs';
+import path from 'node:path';
 
-import { BrandMark } from '@/components/brand-mark';
+export const runtime = 'nodejs';
+
+const logoDataUrl = `data:image/png;base64,${fs
+  .readFileSync(path.join(process.cwd(), 'public/images/logo-mark.png'))
+  .toString('base64')}`;
 
 export const size = {
   width: 512,
@@ -24,15 +30,14 @@ export default function Icon() {
       >
         <div
           style={{
-            width: 360,
-            height: 360,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            width: '100%',
+            height: '100%',
+            backgroundImage: `url(${logoDataUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
-        >
-          <BrandMark />
-        </div>
+        />
       </div>
     ),
     size
