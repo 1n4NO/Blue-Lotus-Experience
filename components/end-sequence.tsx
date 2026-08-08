@@ -34,7 +34,7 @@ export function EndSequence() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(185,151,91,0.06),transparent_36%)]"
           />
-          <p className="relative z-10 max-w-4xl font-display text-[clamp(1.6rem,2.8vw,2.6rem)] leading-[1.08] tracking-[-0.02em] text-text text-balance">
+          <p className="relative z-10 max-w-4xl font-display text-[clamp(1.6rem,2.8vw,2.6rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
             The forest will be here when you're ready.
           </p>
         </section>
@@ -100,7 +100,7 @@ export function EndSequence() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.55 }}
           transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 max-w-4xl font-display text-[clamp(1.6rem,2.8vw,2.6rem)] leading-[1.08] tracking-[-0.02em] text-text text-balance"
+          className="relative z-10 max-w-4xl font-display text-[clamp(1.6rem,2.8vw,2.6rem)] font-normal leading-[1.2] tracking-normal text-text text-balance"
         >
           The forest will be here when you're ready.
         </motion.p>

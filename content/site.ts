@@ -1,6 +1,8 @@
 import type {
   ApplicationStep,
   ExperienceItem,
+  Facilitator,
+  FounderNote,
   GalleryImage,
   FaqItem,
   NavLink,
@@ -8,12 +10,12 @@ import type {
 } from '@/types/site';
 
 export const navigation: NavLink[] = [
-  { label: 'Experience', href: '#experience' },
-  { label: 'Philosophy', href: '#philosophy' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'The Retreat', href: '#retreat' },
-  { label: 'Journal', href: '#journal' },
-  { label: 'Apply', href: 'https://deformity.ai/d/2CQYLc2wbqYl' }
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Philosophy', href: '/#philosophy' },
+  { label: 'Gallery', href: '/#gallery' },
+  { label: 'Journal', href: '/#journal' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' }
 ];
 
 export const applicationUrl = 'https://deformity.ai/d/2CQYLc2wbqYl';
@@ -301,6 +303,95 @@ export const applicationCard = {
   participants: '11 Participants',
   price: '₹11,111',
 } as const;
+
+export const aboutCopy = {
+  title: 'We are not building another escape.',
+  subtitle: 'We are building an Experience that helps people remember what it feels like to be fully present.',
+  intro:
+    'We have more information, more productivity, and more convenience than ever, and somehow less stillness, less silence, and less connection. Blue Lotus exists to bring some of that back.'
+} as const;
+
+export const aboutPhilosophyLines = [
+  'Your body is your temple.',
+  'Nature is your medicine.',
+  'Presence is your practice.'
+] as const;
+
+export const corePrinciples = [
+  {
+    title: 'Presence',
+    description: 'Be fully where you are.'
+  },
+  {
+    title: 'Simplicity',
+    description: 'Remove everything unnecessary.'
+  },
+  {
+    title: 'Intention',
+    description: 'Every detail has a purpose.'
+  },
+  {
+    title: 'Nature',
+    description: 'Nature is not scenery. Nature is the teacher.'
+  },
+  {
+    title: 'Community',
+    description: 'Small groups create deep conversations.'
+  }
+] as const;
+
+export const brandValues = [
+  'Stillness',
+  'Craftsmanship',
+  'Authenticity',
+  'Beauty',
+  'Curiosity',
+  'Mindfulness',
+  'Respect',
+  'Sustainability',
+  'Slowness',
+  'Human Connection'
+] as const;
+
+export const aboutManifesto = {
+  quote: 'The forest has never been in a hurry.',
+  body:
+    'Rain does not rush. Trees do not compete. Mountains do not perform. Nature simply exists, and that is really what Blue Lotus is about: helping people remember how that feels, and giving them two days to practice it.'
+} as const;
+
+export const founderNote: FounderNote = {
+  name: 'Founder Name',
+  role: 'Founder, Blue Lotus Experience',
+  paragraphs: [
+    'Blue Lotus started with a simple realisation. We had built full, convenient lives with very little room left for presence.',
+    'This Experience is not an escape from everyday life. It is a way to return to it slower: walking without a destination, drinking tea without distraction, sitting with people until they stop feeling like strangers.',
+    'Eleven people, two days, one forest. We have never felt the need for more than that.'
+  ]
+} as const;
+
+export const facilitators: Facilitator[] = [
+  {
+    modality: 'Breathwork & Sound Healing',
+    name: 'Facilitator Name',
+    role: 'Breathwork & Sound Healing Facilitator',
+    bio: 'Breath and sound move through this session together, easing the body between conscious breathing and resonant tone. No performance is involved, only attention.',
+    initials: 'BS'
+  },
+  {
+    modality: 'Tea Ceremony & Journaling',
+    name: 'Facilitator Name',
+    role: 'Tea Ceremony & Journaling Facilitator',
+    bio: 'A slow tea ritual gives way to quiet, guided writing. Each cup is a chance to notice the warmth and the pause between sips, and each page is a chance to listen to what is already there.',
+    initials: 'TJ'
+  },
+  {
+    modality: 'Forest Bathing',
+    name: 'The Blue Lotus Team',
+    role: 'Forest Bathing',
+    bio: 'This one is held together rather than by a single guide. A practice of walking slowly and noticing fully, with no destination and no pace to keep, only the forest and the attention it asks for.',
+    initials: 'BL'
+  }
+];
 
 export const footerDetails = {
   instagram: 'https://www.instagram.com/blue.lotus.experience/',

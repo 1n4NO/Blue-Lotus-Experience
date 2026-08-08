@@ -41,3 +41,17 @@ export type RetreatDay = {
   title: string;
   sessions: RetreatSession[];
 };
+
+export type FounderNote = {
+  name: string;
+  role: string;
+  paragraphs: string[];
+};
+
+export type Facilitator = {
+  modality: string;
+  name: string;
+  role: string;
+  bio: string;
+  initials: string;
+};

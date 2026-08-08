@@ -47,7 +47,7 @@ export function HeroSection() {
       <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-between px-6 pb-6 pt-24 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.36em] text-white/52">
           <p className="font-ui">Blue Lotus Experience</p>
-          <p className="hidden font-ui md:block">Kodaikanal · November 2026</p>
+          <p className="hidden font-ui md:block">Kodaikanal · TN · INDIA · November 2026</p>
         </div>
 
         <div className="max-w-4xl pb-8">

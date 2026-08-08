@@ -22,7 +22,7 @@ export function SectionTitle({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="max-w-3xl font-display text-[clamp(2.3rem,5.2vw,5rem)] leading-[0.92] tracking-[-0.025em] text-text text-balance">
+      <h2 className="max-w-3xl font-display text-[clamp(2.3rem,5.2vw,5rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
         {title}
       </h2>
       {description ? (

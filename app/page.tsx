@@ -61,7 +61,7 @@ export default function HomePage() {
                   </span>
                 ))}
                 className="max-w-6xl space-y-4 sm:space-y-5"
-                lineClassName="font-display text-[clamp(3.4rem,8vw,7.9rem)] leading-[0.99] tracking-[-0.03em] text-text text-balance"
+                lineClassName="font-display text-[clamp(3.4rem,8vw,7.9rem)] font-normal leading-[1.2] tracking-normal text-text text-balance"
                 delay={0.08}
               />
 
@@ -126,7 +126,7 @@ export default function HomePage() {
                         className="mt-1 h-16 w-16 flex-none text-gold/80"
                       />
                       <div>
-                        <h3 className="font-display text-[1.48rem] leading-[1.04] tracking-[-0.025em] text-text">
+                        <h3 className="font-display text-[1.48rem] font-normal leading-[1.2] tracking-normal text-text">
                           {item.title}
                         </h3>
                         <p className="mt-2 max-w-xl text-sm leading-[1.72] text-muted">{item.description}</p>
@@ -251,7 +251,7 @@ export default function HomePage() {
                 <p className="font-ui text-[0.7rem] uppercase tracking-[0.34em] text-gold/80">
                   Journal
                 </p>
-                <blockquote className="mx-auto max-w-3xl font-display text-[clamp(2.3rem,5.5vw,5.1rem)] leading-[0.94] tracking-[-0.03em] text-text text-balance">
+                <blockquote className="mx-auto max-w-3xl font-display text-[clamp(2.3rem,5.5vw,5.1rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
                   The forest has never asked you to become someone else.
                   <br />
                   Only to remember who you already are.
@@ -279,14 +279,11 @@ export default function HomePage() {
                 <Reveal
                   key={item}
                   delay={index * 0.08}
-                  className="flex items-baseline justify-between gap-6 border-b border-white/8 py-5 first:pt-0 last:border-b-0"
+                  className="border-b border-white/8 py-5 first:pt-0 last:border-b-0"
                 >
-                  <p className="font-display text-[1.55rem] leading-[1.02] tracking-[-0.025em] text-text">
+                  <p className="font-display text-[1.55rem] font-normal leading-[1.2] tracking-normal text-text">
                     {item}
                   </p>
-                  <span className="font-ui text-[0.62rem] uppercase tracking-[0.34em] text-gold/70">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                 </Reveal>
               ))}
             </div>
@@ -305,7 +302,7 @@ export default function HomePage() {
 
         <section className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto flex max-w-7xl min-h-[28vh] items-end justify-center lg:min-h-[34vh]">
-            <blockquote className="max-w-3xl text-center font-display text-[clamp(1.9rem,4vw,3.8rem)] leading-[1.02] tracking-[-0.03em] text-text text-balance">
+            <blockquote className="max-w-3xl text-center font-display text-[clamp(1.9rem,4vw,3.8rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
               Nothing in the forest is in a hurry.
             </blockquote>
           </div>
@@ -316,7 +313,7 @@ export default function HomePage() {
         <section id="application-process" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-2xl">
-              <h2 className="max-w-md font-display text-[clamp(2.35rem,5.2vw,4.9rem)] leading-[1.12] tracking-[-0.035em] text-text text-balance">
+              <h2 className="max-w-md font-display text-[clamp(2.35rem,5.2vw,4.9rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
                 Apply.
                 <br />
                 Review.
@@ -335,7 +332,7 @@ export default function HomePage() {
                   <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                     0{index + 1}
                   </p>
-                  <p className="mt-3.5 font-display text-[1.6rem] leading-[1.08] tracking-[-0.025em] text-text">
+                  <p className="mt-3.5 font-display text-[1.6rem] font-normal leading-[1.2] tracking-normal text-text">
                     {step.title}
                   </p>
                   <p className="mt-2.5 text-sm leading-[1.7] text-muted">{step.detail}</p>
@@ -353,7 +350,7 @@ export default function HomePage() {
               </p>
 
               <div className="mx-auto max-w-4xl space-y-3.5">
-                <h2 className="font-display text-[clamp(2.8rem,6.8vw,6.3rem)] leading-[0.92] tracking-[-0.03em] text-text text-balance">
+                <h2 className="font-display text-[clamp(2.8rem,6.8vw,6.3rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
                   {applicationDetails.month} 2026
                   <br />
                   {applicationDetails.location}

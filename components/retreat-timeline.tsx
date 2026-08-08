@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 import { cn } from '@/lib/cn';
@@ -27,12 +28,24 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
         {days.map((day, dayIndex) => (
           <article key={day.day} className="relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
             <ParallaxBackground src="/images/paper.png" overlayOpacity={0.6} />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute right-5 top-5 z-10 h-28 w-28 opacity-80 sm:right-7 sm:top-7 sm:h-32 sm:w-32"
+            >
+              <Image
+                src={dayIndex === 0 ? '/images/petal.png' : '/images/petal-2.png'}
+                alt=""
+                fill
+                sizes="128px"
+                className="object-contain"
+              />
+            </div>
             <div className="relative mb-8 flex flex-col gap-3 border-b border-white/8 pb-5 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                   {day.day}
                 </p>
-                <h3 className="mt-2 max-w-[14ch] font-display text-[clamp(1.85rem,3.6vw,2.9rem)] leading-[1.08] tracking-[-0.02em] text-text">
+                <h3 className="mt-2 max-w-[14ch] font-display text-[clamp(1.85rem,3.6vw,2.9rem)] font-normal leading-[1.2] tracking-normal text-text">
                   {day.title}
                 </h3>
               </div>
@@ -60,7 +73,7 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
                     <p className="font-ui text-[0.68rem] uppercase tracking-[0.3em] text-gold/75">
                       {session.time}
                     </p>
-                    <h4 className="mt-2 font-display text-[1.9rem] leading-[1.02] tracking-[-0.02em] text-text">
+                    <h4 className="mt-2 font-display text-[1.9rem] font-normal leading-[1.2] tracking-normal text-text">
                       {session.title}
                     </h4>
                     <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{session.detail}</p>
@@ -82,12 +95,24 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
           className="relative overflow-hidden rounded-[2rem] p-6 sm:p-8"
         >
           <ParallaxBackground src="/images/paper.png" overlayOpacity={0.6} />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-5 top-5 z-10 h-28 w-28 opacity-80 sm:right-7 sm:top-7 sm:h-32 sm:w-32"
+          >
+            <Image
+              src={dayIndex === 0 ? '/images/petal.png' : '/images/petal-2.png'}
+              alt=""
+              fill
+              sizes="128px"
+              className="object-contain"
+            />
+          </div>
           <div className="relative mb-8 flex flex-col gap-3 border-b border-white/8 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="font-ui text-[0.68rem] uppercase tracking-[0.34em] text-gold/80">
                 {day.day}
               </p>
-              <h3 className="mt-2 max-w-[14ch] font-display text-[clamp(1.85rem,3.6vw,2.9rem)] leading-[1.08] tracking-[-0.02em] text-text">
+              <h3 className="mt-2 max-w-[14ch] font-display text-[clamp(1.85rem,3.6vw,2.9rem)] font-normal leading-[1.2] tracking-normal text-text">
                 {day.title}
               </h3>
             </div>
@@ -127,7 +152,7 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
                   <p className="font-ui text-[0.68rem] uppercase tracking-[0.3em] text-gold/75">
                     {session.time}
                   </p>
-                  <h4 className="mt-2 font-display text-[1.9rem] leading-[1.02] tracking-[-0.02em] text-text">
+                  <h4 className="mt-2 font-display text-[1.9rem] font-normal leading-[1.2] tracking-normal text-text">
                     {session.title}
                   </h4>
                   <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{session.detail}</p>

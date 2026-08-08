@@ -208,6 +208,20 @@ function NoteArtifact({ src, className, size }: { src: string; className: string
   );
 }
 
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 1024px)');
+    const update = () => setIsDesktop(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
+  return isDesktop;
+}
+
 function JournalNote({
   item,
   index,
@@ -219,7 +233,8 @@ function JournalNote({
   buttonRef,
   onToggle,
   onKeyDown,
-  reduceMotion
+  reduceMotion,
+  isDesktop
 }: {
   item: FaqItem;
   index: number;
@@ -232,6 +247,7 @@ function JournalNote({
   onToggle: () => void;
   onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => void;
   reduceMotion: boolean;
+  isDesktop: boolean;
 }) {
   const isOpen = phase === 'open' || phase === 'opening' || phase === 'closing';
   const isOpening = phase === 'opening';
@@ -250,6 +266,13 @@ function JournalNote({
 
   const isSettledOpen = phase === 'opening' || phase === 'open';
 
+  // On mobile the cards stack in normal flow and must always stay centered and
+  // upright — rotation and the desktop "scatter" offsets only apply at lg.
+  const effectiveRotate = isDesktop ? layout.rotate : 0;
+  const effectiveOpenRotate = isDesktop ? openMotionRotate : 0;
+  const effectiveOpenX = isDesktop ? openMotionX : 0;
+  const effectiveOpenY = isDesktop ? openMotionY : 0;
+
   const shapeClass =
     layout.kind === 'folded'
       ? '[clip-path:polygon(0_0,92%_0,100%_9%,100%_100%,0_100%)]'
@@ -263,15 +286,15 @@ function JournalNote({
 
   return (
     <motion.div
-      className="relative w-full lg:absolute lg:[top:var(--note-top)] lg:[left:var(--note-left)] lg:[width:var(--note-width)]"
+      className="relative mx-auto w-[86%] max-w-sm lg:mx-0 lg:w-auto lg:max-w-none lg:absolute lg:[top:var(--note-top)] lg:[left:var(--note-left)] lg:[width:var(--note-width)]"
       style={{
         ...styleVars,
         zIndex: active ? 1000 : layout.zIndex
       }}
       animate={{
-        x: isSettledOpen ? openMotionX : 0,
-        y: isSettledOpen ? openMotionY : 0,
-        rotate: isSettledOpen ? openMotionRotate : layout.rotate,
+        x: isSettledOpen ? effectiveOpenX : 0,
+        y: isSettledOpen ? effectiveOpenY : 0,
+        rotate: isSettledOpen ? effectiveOpenRotate : effectiveRotate,
         opacity: active ? 1 : phase === 'closed' ? 0.98 : 0.7
       }}
       transition={{ duration: reduceMotion ? 0.12 : isClosing ? 0.32 : 0.78, ease: [0.22, 1, 0.36, 1] }}
@@ -328,24 +351,13 @@ function JournalNote({
               <span className="font-ui text-[0.58rem] uppercase tracking-[0.36em] text-[#8b6f46]">
                 {String(index + 1).padStart(2, '0')}
               </span>
-
-              {(phase === 'open' || phase === 'opening' || phase === 'closing') ? (
-                <button
-                  type="button"
-                  onClick={onToggle}
-                  onKeyDown={onKeyDown}
-                  className="font-ui text-[0.58rem] uppercase tracking-[0.36em] text-[#8b6f46] transition duration-300 hover:text-[#6f583d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40 focus-visible:ring-offset-0"
-                >
-                  Fold back
-                </button>
-              ) : null}
             </div>
 
             <div className="mt-4 max-w-[19rem]">
               <p
                 className={cn(
                   'font-display text-[#24170f] text-balance',
-                  active ? 'text-[clamp(1.08rem,1.55vw,1.5rem)] leading-[1.08]' : 'text-[clamp(0.98rem,1.15vw,1.15rem)] leading-[1.08]'
+                  active ? 'text-[clamp(1.08rem,1.55vw,1.5rem)] leading-[1.2]' : 'text-[clamp(0.98rem,1.15vw,1.15rem)] leading-[1.2]'
                 )}
               >
                 {item.question}
@@ -395,6 +407,7 @@ export function FaqSection({ items }: FaqSectionProps) {
   const timerRef = useRef<number | null>(null);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const reduceMotion = useReducedMotion();
+  const isDesktop = useIsDesktop();
 
   const openMs = reduceMotion ? 120 : OPEN_MS;
   const closeMs = reduceMotion ? 120 : CLOSE_MS;
@@ -409,6 +422,49 @@ export function FaqSection({ items }: FaqSectionProps) {
   useEffect(() => {
     return () => clearTimer();
   }, []);
+
+  useEffect(() => {
+    if (activeIndex === null || (phase !== 'open' && phase !== 'opening')) {
+      return;
+    }
+
+    // Use the 'click' event (not 'pointerdown') so mobile scrolling never closes
+    // the note: browsers only fire 'click' for a genuine tap, not for a touch
+    // drag/scroll gesture.
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Node)) {
+        return;
+      }
+
+      // Clicking another (closed) note's own toggle button is already handled
+      // by that button's onClick, which closes this note and opens the new one.
+      const clickedAnotherNoteButton = buttonRefs.current.some(
+        (button) => button && button.contains(target)
+      );
+      if (clickedAnotherNoteButton) {
+        return;
+      }
+
+      queuedIndexRef.current = null;
+      closeNote();
+    };
+
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === 'Tab' || event.key === 'Escape') {
+        queuedIndexRef.current = null;
+        closeNote();
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeIndex, phase]);
 
   const openNote = (index: number) => {
     clearTimer();
@@ -508,7 +564,7 @@ export function FaqSection({ items }: FaqSectionProps) {
           <p className="font-ui text-[0.72rem] uppercase tracking-[0.34em] text-gold/80">
             BEFORE YOU ARRIVE
           </p>
-          <h2 className="font-display text-[clamp(2.5rem,4.6vw,5rem)] leading-[0.96] tracking-[-0.035em] text-text text-balance">
+          <h2 className="font-display text-[clamp(2.5rem,4.6vw,5rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
             A few things
             <br />
             you may wonder.
@@ -521,10 +577,10 @@ export function FaqSection({ items }: FaqSectionProps) {
         <div className="relative flex items-center justify-center">
           <div className="relative w-[min(100%,72rem)]">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_40%_42%,rgba(64,44,27,0.54),transparent_45%),radial-gradient(circle_at_70%_62%,rgba(9,7,6,0.9),transparent_52%)] blur-2xl" />
-            <div className="relative min-h-[42rem] lg:min-h-[44rem]">
-              <div className="absolute inset-0 bg-[#1a120d] shadow-[0_42px_90px_rgba(0,0,0,0.44)]" />
-              <div className="absolute inset-[1rem] bg-[#16100c]" />
-              <div className="absolute inset-[1.65rem] bg-[#211815]">
+            <div className="relative lg:min-h-[44rem]">
+              <div className="hidden lg:block lg:absolute lg:inset-0 bg-[#1a120d] shadow-[0_42px_90px_rgba(0,0,0,0.44)]" />
+              <div className="hidden lg:block lg:absolute lg:inset-[1rem] bg-[#16100c]" />
+              <div className="hidden lg:block lg:absolute lg:inset-[1.65rem] bg-[#211815]">
                 <div className="absolute inset-y-0 left-[3.5%] w-[39%] bg-[linear-
 				gradient(90deg,rgba(247,240,228,0.94),rgba(231,220,202,0.88)_70%,rgba(219,205,186,0.96))]
 				shadow-[inset_-1px_0_0_rgba(71,53,35,0.1)]">
@@ -657,33 +713,35 @@ export function FaqSection({ items }: FaqSectionProps) {
                 </div>
 
 
-                <div className="absolute inset-0">
-                  {items.map((item, index) => {
-                    const layout = layouts[index] ?? layouts[layouts.length - 1];
-                    const buttonId = `${sectionId}-note-${index}-button`;
-                    const panelId = `${sectionId}-note-${index}-panel`;
-                    const itemPhase = activeIndex === index ? phase : 'closed';
+              </div>
 
-                    return (
-                      <JournalNote
-                        key={item.question}
-                        item={item}
-                        index={index}
-                        layout={layout}
-                        phase={itemPhase}
-                        active={activeIndex === index}
-                        buttonId={buttonId}
-                        panelId={panelId}
-                        buttonRef={(node) => {
-                          buttonRefs.current[index] = node;
-                        }}
-                        onToggle={() => toggle(index)}
-                        onKeyDown={(event) => onKeyDown(index, event)}
-                        reduceMotion={!!reduceMotion}
-                      />
-                    );
-                  })}
-                </div>
+              <div className="relative w-full space-y-6 py-10 lg:absolute lg:inset-[1.65rem] lg:space-y-0 lg:py-0">
+                {items.map((item, index) => {
+                  const layout = layouts[index] ?? layouts[layouts.length - 1];
+                  const buttonId = `${sectionId}-note-${index}-button`;
+                  const panelId = `${sectionId}-note-${index}-panel`;
+                  const itemPhase = activeIndex === index ? phase : 'closed';
+
+                  return (
+                    <JournalNote
+                      key={item.question}
+                      item={item}
+                      index={index}
+                      layout={layout}
+                      phase={itemPhase}
+                      active={activeIndex === index}
+                      buttonId={buttonId}
+                      panelId={panelId}
+                      buttonRef={(node) => {
+                        buttonRefs.current[index] = node;
+                      }}
+                      onToggle={() => toggle(index)}
+                      onKeyDown={(event) => onKeyDown(index, event)}
+                      reduceMotion={!!reduceMotion}
+                      isDesktop={isDesktop}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
