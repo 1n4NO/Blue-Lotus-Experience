@@ -1,12 +1,10 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 import {
   applicationCard,
   applicationDetails,
   applicationProcess,
-  applicationUrl,
   bringItems,
   experienceIllustrations,
   experienceItems,
@@ -18,6 +16,7 @@ import {
   whoThisIsFor,
   whyEleven
 } from '@/content/site';
+import { ApplyTrigger } from '@/components/apply-trigger';
 import { FaqSection } from '@/components/faq-section';
 import { HeroSection } from '@/components/hero-section';
 import { LineIllustration } from '@/components/line-illustration';
@@ -369,7 +368,12 @@ export default function HomePage() {
                 ))}
               </div>
 
-              <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2" />
+              <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2">
+                <ApplyTrigger className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-7 py-4 font-ui text-[0.72rem] uppercase tracking-[0.3em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/12">
+                  Apply Now
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
+                </ApplyTrigger>
+              </div>
             </Reveal>
           </div>
         </section>

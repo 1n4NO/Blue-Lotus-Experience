@@ -394,7 +394,7 @@ export const facilitators: Facilitator[] = [
 ];
 
 export const footerDetails = {
-  instagram: 'https://www.instagram.com/blue.lotus.experience/',
-  email: 'bluelotusexperience@duck.com',
+  instagram: 'https://www.instagram.com/experience.blue.lotus/',
+  email: 'the.blue.lotus@outlook.com',
   location: 'Kodaikanal, Tamil Nadu'
 } as const;

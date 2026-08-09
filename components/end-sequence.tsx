@@ -1,12 +1,12 @@
 'use client';
 
-import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import { applicationUrl } from '@/content/site';
+import { useApplicationModal } from '@/components/application-modal-provider';
 
 export function EndSequence() {
   const reduceMotion = useReducedMotion();
+  const { open: openApplicationModal } = useApplicationModal();
 
   if (reduceMotion) {
     return (
@@ -54,14 +54,13 @@ export function EndSequence() {
                 Ready when you are.
               </p>
 
-              <Link
-                href={applicationUrl}
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                onClick={openApplicationModal}
                 className="relative z-20 mt-8 inline-flex items-center justify-center border border-white/12 px-7 py-4 font-ui text-[0.72rem] uppercase tracking-[0.3em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/8"
               >
                 Begin Your Journey
-              </Link>
+              </button>
             </div>
           </div>
         </section>
@@ -127,14 +126,13 @@ export function EndSequence() {
               Ready when you are.
             </p>
 
-            <Link
-              href={applicationUrl}
-              target="_blank"
-              rel="noreferrer"
+            <button
+              type="button"
+              onClick={openApplicationModal}
               className="relative z-20 mt-8 inline-flex items-center justify-center border border-white/12 px-7 py-4 font-ui text-[0.72rem] uppercase tracking-[0.3em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/8"
             >
               Begin Your Journey
-            </Link>
+            </button>
           </motion.div>
         </div>
       </section>

@@ -5,11 +5,13 @@ import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { heroCopy } from '@/content/site';
+import { useApplicationModal } from '@/components/application-modal-provider';
 import { Reveal } from '@/components/reveal';
 import { HeroMedia } from '@/components/hero-media';
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
+  const { open: openApplicationModal } = useApplicationModal();
 
   return (
     <section className="relative flex min-h-screen items-end overflow-hidden bg-background" aria-label="Hero">
@@ -62,13 +64,14 @@ export function HeroSection() {
           </Reveal>
 
           <Reveal delay={0.18} className="mt-12 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="#apply"
+            <button
+              type="button"
+              onClick={openApplicationModal}
               className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-6 py-3.5 font-ui text-[0.7rem] uppercase tracking-[0.3em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/12 hover:shadow-[0_18px_40px_rgba(0,0,0,0.22)]"
             >
               {heroCopy.primaryCta}
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-            </Link>
+            </button>
             <Link
               href="#experience"
               className="inline-flex items-center justify-center border border-white/10 px-6 py-3.5 font-ui text-[0.7rem] uppercase tracking-[0.3em] text-muted transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/22 hover:text-text hover:shadow-[0_18px_40px_rgba(0,0,0,0.18)]"

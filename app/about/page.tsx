@@ -1,18 +1,17 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 import {
   aboutCopy,
   aboutManifesto,
   aboutPhilosophyLines,
-  applicationUrl,
   brandValues,
   corePrinciples,
   facilitators,
   founderNote,
   whyEleven
 } from '@/content/site';
+import { ApplyTrigger } from '@/components/apply-trigger';
 import { ParallaxBackground } from '@/components/parallax-background';
 import { Reveal } from '@/components/reveal';
 import { StaggeredLines } from '@/components/staggered-lines';
@@ -261,15 +260,10 @@ export default function AboutPage() {
 
         <section className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <Reveal className="mx-auto flex max-w-3xl flex-col items-center gap-8 text-center">
-            <Link
-              href={applicationUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-6 py-3.5 font-ui text-[0.7rem] uppercase tracking-[0.3em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/12"
-            >
+            <ApplyTrigger className="inline-flex items-center justify-center gap-3 border border-white/12 bg-white/8 px-6 py-3.5 font-ui text-[0.7rem] uppercase tracking-[0.3em] text-text transition duration-500 ease-calm hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/12">
               Begin Your Journey
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-            </Link>
+            </ApplyTrigger>
           </Reveal>
         </section>
       </article>
