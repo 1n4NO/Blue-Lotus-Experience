@@ -16,20 +16,21 @@ import { ParallaxBackground } from '@/components/parallax-background';
 import { Reveal } from '@/components/reveal';
 import { StaggeredLines } from '@/components/staggered-lines';
 import { siteConfig } from '@/lib/site';
+import { SeoBreadcrumbs } from '@/components/seo-breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: { absolute: 'About Blue Lotus · Slow-Living Retreat in Kodaikanal' },
   description:
-    'Blue Lotus Experience is a slow-living practice rooted in presence, nature, and human-scale connection.',
+    'Learn about Blue Lotus Experience, a slow-living forest retreat in Kodaikanal rooted in presence, nature, and human-scale connection.',
   alternates: {
     canonical: '/about'
   },
   openGraph: {
     type: 'website',
     url: `${siteConfig.url}/about`,
-    title: `About · ${siteConfig.shortName}`,
+    title: 'About Blue Lotus · Slow-Living Retreat in Kodaikanal',
     description:
-      'Blue Lotus Experience is a slow-living practice rooted in presence, nature, and human-scale connection.'
+      'Learn about Blue Lotus Experience, a slow-living forest retreat in Kodaikanal rooted in presence, nature, and human-scale connection.'
   }
 };
 
@@ -55,6 +56,7 @@ function AboutHeading({ title, description, className }: AboutHeadingProps) {
 export default function AboutPage() {
   return (
     <main id="content" className="bg-background">
+      <SeoBreadcrumbs items={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }]} />
       <article className="relative isolate">
         <section className="section-grid px-6 pb-[6rem] pt-[10rem] sm:px-8 lg:px-10 lg:pt-[12rem]">
           <div className="mx-auto max-w-5xl">

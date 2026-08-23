@@ -25,7 +25,7 @@ export function LoadingSequence({ children }: LoadingSequenceProps) {
       return;
     }
 
-    const holdTime = reduceMotion ? 900 : 2600;
+    const holdTime = reduceMotion ? 900 : 1400;
     let mounted = true;
 
     setIsLoading(true);
@@ -50,7 +50,7 @@ export function LoadingSequence({ children }: LoadingSequenceProps) {
 
   return (
     <>
-      <div style={{ visibility: isLoading ? 'hidden' : 'visible' }}>{children}</div>
+      <div>{children}</div>
 
       <AnimatePresence>
         {isLoading ? (

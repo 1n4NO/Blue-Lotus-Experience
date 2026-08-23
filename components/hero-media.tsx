@@ -20,8 +20,8 @@ export function HeroMedia() {
           muted
           loop
           playsInline
-          preload="auto"
-          poster="/images/gallery/2.png"
+          preload="metadata"
+          poster="/images/hero-poster.webp"
         />
         <div
           aria-hidden="true"
@@ -55,8 +55,8 @@ export function HeroMedia() {
         muted
         loop
         playsInline
-        preload="auto"
-        poster="/images/gallery/2.png"
+        preload="metadata"
+        poster="/images/hero-poster.webp"
       />
 
       <motion.div

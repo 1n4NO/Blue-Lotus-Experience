@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/site';
+import { faqItems } from '@/content/site';
 
 export function SeoJsonLd() {
   const jsonLd = {
@@ -13,28 +14,21 @@ export function SeoJsonLd() {
         sameAs: [siteConfig.instagram]
       },
       {
-        '@type': 'Event',
-        name: 'Blue Lotus Experience Retreat',
-        startDate: '2026-10-01',
-        endDate: '2026-10-02',
-        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-        eventStatus: 'https://schema.org/EventScheduled',
-        location: {
-          '@type': 'Place',
-          name: siteConfig.location
-        },
-        organizer: {
-          '@type': 'Organization',
-          name: siteConfig.name
-        },
-        description: siteConfig.description,
-        url: siteConfig.url
-      },
-      {
         '@type': 'WebSite',
         name: siteConfig.name,
         url: siteConfig.url,
         description: siteConfig.description
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer
+          }
+        }))
       }
     ]
   };

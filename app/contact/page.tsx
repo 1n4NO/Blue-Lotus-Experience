@@ -4,18 +4,19 @@ import Link from 'next/link';
 import { footerDetails } from '@/content/site';
 import { Reveal } from '@/components/reveal';
 import { siteConfig } from '@/lib/site';
+import { SeoBreadcrumbs } from '@/components/seo-breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Get in touch with Blue Lotus Experience.',
+  title: { absolute: 'Contact Blue Lotus Experience' },
+  description: 'Contact Blue Lotus Experience about the November 2026 Kodaikanal forest retreat and application process.',
   alternates: {
     canonical: '/contact'
   },
   openGraph: {
     type: 'website',
     url: `${siteConfig.url}/contact`,
-    title: `Contact · ${siteConfig.shortName}`,
-    description: 'Get in touch with Blue Lotus Experience.'
+    title: 'Contact Blue Lotus Experience',
+    description: 'Contact Blue Lotus Experience about the November 2026 Kodaikanal forest retreat and application process.'
   }
 };
 
@@ -25,6 +26,7 @@ export default function ContactPage() {
       id="content"
       className="flex min-h-screen items-center justify-center bg-background px-6 py-28 sm:px-8 lg:px-10"
     >
+      <SeoBreadcrumbs items={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]} />
       <Reveal className="mx-auto max-w-xl text-center">
         <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
           Get in touch.

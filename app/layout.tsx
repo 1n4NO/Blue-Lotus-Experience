@@ -29,7 +29,7 @@ const libreBaskerville = Libre_Baskerville({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
+    default: 'Kodaikanal Forest Retreat · Blue Lotus Experience',
     template: `%s · ${siteConfig.shortName}`
   },
   description: siteConfig.description,
@@ -42,13 +42,22 @@ export const metadata: Metadata = {
     type: 'website',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.name,
-    description: siteConfig.description
+    title: 'Kodaikanal Forest Retreat · Blue Lotus Experience',
+    description: siteConfig.description,
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Blue Lotus Experience — Kodaikanal forest retreat'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description
+    title: 'Kodaikanal Forest Retreat · Blue Lotus Experience',
+    description: siteConfig.description,
+    images: ['/opengraph-image']
   },
   robots: {
     index: true,

@@ -2,18 +2,19 @@ import type { Metadata } from 'next';
 
 import { footerDetails } from '@/content/site';
 import { siteConfig } from '@/lib/site';
+import { SeoBreadcrumbs } from '@/components/seo-breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions',
-  description: 'Terms and conditions for applying to and attending Blue Lotus Experience.',
+  title: { absolute: 'Terms & Conditions · Blue Lotus Experience' },
+  description: 'Terms and conditions for applying to and attending the Blue Lotus Experience Kodaikanal forest retreat.',
   alternates: {
     canonical: '/terms'
   },
   openGraph: {
     type: 'website',
     url: `${siteConfig.url}/terms`,
-    title: `Terms & Conditions \u00b7 ${siteConfig.shortName}`,
-    description: 'Terms and conditions for applying to and attending Blue Lotus Experience.'
+    title: 'Terms & Conditions · Blue Lotus Experience',
+    description: 'Terms and conditions for applying to and attending the Blue Lotus Experience Kodaikanal forest retreat.'
   }
 };
 
@@ -86,6 +87,7 @@ const sections = [
 export default function TermsPage() {
   return (
     <main id="content" className="bg-background">
+      <SeoBreadcrumbs items={[{ name: 'Home', path: '/' }, { name: 'Terms & Conditions', path: '/terms' }]} />
       <article className="relative isolate px-6 pb-[6rem] pt-[10rem] sm:px-8 lg:px-10 lg:pt-[12rem]">
         <div className="mx-auto max-w-3xl">
           <p className="font-ui text-[0.7rem] uppercase tracking-[0.34em] text-gold/80">

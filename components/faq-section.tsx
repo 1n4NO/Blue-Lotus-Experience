@@ -590,7 +590,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 					rotate-[0.5deg] opacity-88"
 					>
 					<Image
-						src="/images/paper.png"
+						src="/images/paper.webp"
 						alt=""
 						fill
 						sizes="(max-width: 1024px) 100vw, 72rem"
@@ -619,7 +619,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 					rotate-[184deg] opacity-88"
 					>
 					<Image
-						src="/images/paper.png"
+						src="/images/paper.webp"
 						alt=""
 						fill
 						sizes="(max-width: 1024px) 100vw, 72rem"
@@ -639,7 +639,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 					shadow-[10px_1px_20px_rgba(0,0,0,0.1)]"
 					>
 					<Image
-						src="/images/paper-1.png"
+                  src="/images/paper-1.webp"
 						alt=""
 						fill
 						sizes="(max-width: 1024px) 100vw, 72rem"
@@ -662,7 +662,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 				</div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(255,255,255,0.02),transparent_34%)]" />
                 <Image
-                  src="/images/paper.png"
+                  src="/images/paper.webp"
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 72rem"

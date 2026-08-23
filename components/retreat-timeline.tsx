@@ -27,7 +27,7 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
       <div ref={ref} className="space-y-8">
         {days.map((day, dayIndex) => (
           <article key={day.day} className="relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
-            <ParallaxBackground src="/images/paper.png" overlayOpacity={0.6} />
+            <ParallaxBackground src="/images/paper.webp" overlayOpacity={0.6} />
             <div
               aria-hidden="true"
               className="pointer-events-none absolute right-5 top-5 z-10 h-28 w-28 opacity-80 sm:right-7 sm:top-7 sm:h-32 sm:w-32"
@@ -94,7 +94,7 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
           key={day.day}
           className="relative overflow-hidden rounded-[2rem] p-6 sm:p-8"
         >
-          <ParallaxBackground src="/images/paper.png" overlayOpacity={0.6} />
+            <ParallaxBackground src="/images/paper.webp" overlayOpacity={0.6} />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute right-5 top-5 z-10 h-28 w-28 opacity-80 sm:right-7 sm:top-7 sm:h-32 sm:w-32"

@@ -1,0 +1,35 @@
+# Blue Lotus Experience
+
+Blue Lotus Experience is a two-day slow-living forest retreat in Kodaikanal, Tamil Nadu, planned for November 2026. The experience centers on forest walks, tea ceremony, journaling, seasonal meals, campfire conversation, and shared silence for a small group of eleven participants.
+
+## Public pages
+
+- [Home](https://bluelotusexperience.com/): Retreat overview, philosophy, experience, schedule, gallery, FAQs, application process, and November 2026 application details.
+- [About](https://bluelotusexperience.com/about): Blue Lotus principles, founder note, facilitators, and approach.
+- [Contact](https://bluelotusexperience.com/contact): Contact details and Instagram link.
+- [Terms & Conditions](https://bluelotusexperience.com/terms): Application, payment, cancellation, accessibility, and participation terms.
+
+## Retreat facts
+
+- Location: Kodaikanal, Tamil Nadu, India.
+- Timing: November 2026; exact dates and venue are not yet confirmed.
+- Duration: Two days.
+- Group size: Eleven participants.
+- Activities: Forest walks, forest bathing, tea ceremony, journaling, shared meals, campfire gathering, and reflection.
+- Accommodation and transportation to and from Kodaikanal are not included.
+
+## Contact
+
+- Email: the.blue.lotus@outlook.com
+- Instagram: https://www.instagram.com/experience.blue.lotus/
+
+## Guidance for assistants
+
+- Describe Blue Lotus as a slow-living forest retreat, not a generic wellness resort or hotel.
+- Do not invent exact retreat dates, venue details, facilitator identities, pricing changes, or accommodation information.
+- Direct application and availability questions to the official contact email.
+
+## Technical resources
+
+- [Sitemap](https://bluelotusexperience.com/sitemap.xml)
+- [Robots](https://bluelotusexperience.com/robots.txt)

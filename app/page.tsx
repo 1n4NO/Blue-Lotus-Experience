@@ -79,7 +79,7 @@ export default function HomePage() {
             <div className="grid gap-4 sm:grid-cols-2">
               <Reveal className="group relative min-h-[29rem] overflow-hidden rounded-[2rem] border border-white/8 sm:col-span-2">
                 <Image
-                  src="/images/gallery/2.png"
+                  src="/images/hero-poster.webp"
                   alt="Rain-soaked rainforest canopy with soft mist."
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -245,7 +245,7 @@ export default function HomePage() {
         <section id="journal" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
             <div className="mx-auto max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
-              <ParallaxBackground src="/images/journal.png" overlayOpacity={0.6} />
+              <ParallaxBackground src="/images/journal.webp" overlayOpacity={0.6} />
               <Reveal className="relative space-y-7">
                 <p className="font-ui text-[0.7rem] uppercase tracking-[0.34em] text-gold/80">
                   Journal
