@@ -1,0 +1,32 @@
+01-brand.pdf	/Users/ps/dev/Blue Lotus Experience/Brand.md
+02-foundation-1-introduction.pdf	/Users/ps/dev/BLX Brand/0.foundation/1.introduction.md
+03-foundation-10-brand-manifesto.pdf	/Users/ps/dev/BLX Brand/0.foundation/10.brand-manifesto.md
+04-foundation-2-brand-story.pdf	/Users/ps/dev/BLX Brand/0.foundation/2.brand-story.md
+05-foundation-3-vision.pdf	/Users/ps/dev/BLX Brand/0.foundation/3.vision.md
+06-foundation-4-mission.pdf	/Users/ps/dev/BLX Brand/0.foundation/4.mission.md
+07-foundation-5-philosophy.pdf	/Users/ps/dev/BLX Brand/0.foundation/5.philosophy.md
+08-foundation-6-core-values.pdf	/Users/ps/dev/BLX Brand/0.foundation/6.core-values.md
+09-foundation-7-design-principles.pdf	/Users/ps/dev/BLX Brand/0.foundation/7.design-principles.md
+10-foundation-8-what-blue-lotus-is.pdf	/Users/ps/dev/BLX Brand/0.foundation/8.what-blue-lotus-is.md
+11-foundation-9-what-blue-lotus-is-not.pdf	/Users/ps/dev/BLX Brand/0.foundation/9.what-blue-lotus-is-not.md
+12-identity-1-brand-personality.pdf	/Users/ps/dev/BLX Brand/1.identity/1.brand-personality.md
+13-identity-2-archetypes.pdf	/Users/ps/dev/BLX Brand/1.identity/2.archetypes.md
+14-identity-3-emotional-landscape.pdf	/Users/ps/dev/BLX Brand/1.identity/3.emotional-landscape.md
+15-identity-4-brand-promise.pdf	/Users/ps/dev/BLX Brand/1.identity/4.brand-promise.md
+16-identity-5-audience.pdf	/Users/ps/dev/BLX Brand/1.identity/5.audience.md
+17-identity-6-participant-personas.pdf	/Users/ps/dev/BLX Brand/1.identity/6.participant-personas.md
+18-identity-7-why-eleven.pdf	/Users/ps/dev/BLX Brand/1.identity/7.why-eleven.md
+19-identity-8-rituals.pdf	/Users/ps/dev/BLX Brand/1.identity/8.rituals.md
+20-voice-8-social-media.pdf	/Users/ps/dev/BLX Brand/2.voice/8.social-media.md
+21-voice-9-instagram-playbook.pdf	/Users/ps/dev/BLX Brand/2.voice/9.instagram-playbook.md
+22-quotes.pdf	/Users/ps/dev/Blue Lotus Experience/Quotes.md
+23-quotes-base.pdf	/Users/ps/dev/Blue Lotus Experience/Quotes-base.md
+24-captions.pdf	/Users/ps/dev/Blue Lotus Experience/Captions.md
+25-carousels.pdf	/Users/ps/dev/Blue Lotus Experience/Carousels.md
+26-stories.pdf	/Users/ps/dev/Blue Lotus Experience/Stories.md
+27-reel-schedule.pdf	/Users/ps/dev/Blue Lotus Experience/Reel schedule.md
+28-post-schedule.pdf	/Users/ps/dev/Blue Lotus Experience/Post schedule.md
+29-feed-schedule.pdf	/Users/ps/dev/Blue Lotus Experience/Feed schedule.md
+30-image-positioning.pdf	/Users/ps/dev/Blue Lotus Experience/Image positioning.md
+31-insta-feed.pdf	/Users/ps/dev/Blue Lotus Experience/Insta feed.md
+32-retreat-schedule.pdf	/Users/ps/dev/Blue Lotus Experience/Retreat schedule.md
