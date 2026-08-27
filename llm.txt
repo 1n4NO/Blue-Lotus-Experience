@@ -49,7 +49,7 @@ Content notes
 - Gallery assets are sourced from `public/images/gallery/`
 - Brand logo uses `public/images/profile.png`
 - Apply URL: `https://deformity.ai/d/2CQYLc2wbqYl`
-- Contact email: `bluelotusexperience@duck.com`
+- Contact email: `retreat@blue-lotus-experience.com`
 - Instagram: `https://www.instagram.com/blue.lotus.experience/`
 
 Design language
