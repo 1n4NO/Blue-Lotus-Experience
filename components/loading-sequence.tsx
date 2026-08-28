@@ -25,7 +25,7 @@ export function LoadingSequence({ children }: LoadingSequenceProps) {
       return;
     }
 
-    const holdTime = reduceMotion ? 900 : 1400;
+    const holdTime = reduceMotion ? 450 : 650;
     let mounted = true;
 
     setIsLoading(true);

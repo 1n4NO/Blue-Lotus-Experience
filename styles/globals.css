@@ -90,6 +90,11 @@ button {
   position: relative;
 }
 
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
 .section-grid::before {
   content: '';
   position: absolute;

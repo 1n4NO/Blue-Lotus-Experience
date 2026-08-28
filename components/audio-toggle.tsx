@@ -30,7 +30,7 @@ function getRainVolume(scrollProgress: number) {
 export function AudioToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { scrollYProgress } = useScroll();
-  const [enabled, setEnabled] = useState(true);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -41,14 +41,6 @@ export function AudioToggle() {
       audio.src = '';
       audioRef.current = null;
     };
-  }, []);
-
-  useEffect(() => {
-    void start().then((started) => {
-      setEnabled(started);
-    });
-    // The intent is for ambience to be present by default; if the browser
-    // blocks autoplay, we fall back to the toggle state after hydration.
   }, []);
 
   useEffect(() => {
@@ -93,7 +85,7 @@ export function AudioToggle() {
     if (!audio) {
       audio = new Audio(RAIN_AUDIO_SRC);
       audio.loop = true;
-      audio.preload = 'auto';
+      audio.preload = 'none';
       audioRef.current = audio;
     }
 

@@ -1,10 +1,29 @@
 'use client';
 
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { useScroll, useTransform, motion, useReducedMotion } from 'framer-motion';
+
+const HERO_POSTER = '/images/hero-poster.webp';
+const HERO_VIDEO = '/video/hero.mp4';
 
 export function HeroMedia() {
   const { scrollYProgress } = useScroll();
   const reduceMotion = useReducedMotion();
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+
+    const startVideo = () => setVideoReady(true);
+    const idleWindow = window.requestIdleCallback?.(startVideo, { timeout: 1800 });
+    const fallbackTimer = window.setTimeout(startVideo, 1400);
+
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      if (idleWindow !== undefined) window.cancelIdleCallback?.(idleWindow);
+    };
+  }, [reduceMotion]);
 
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.2, 1], [0.3, 0.48, 0.72]);
   const vignetteOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [0.5, 0.56, 0.68]);
@@ -13,15 +32,13 @@ export function HeroMedia() {
   if (reduceMotion) {
     return (
       <div className="absolute inset-0 overflow-hidden">
-        <video
-          src="/video/hero.mp4"
+        <Image
+          src={HERO_POSTER}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/images/hero-poster.webp"
         />
         <div
           aria-hidden="true"
@@ -46,8 +63,16 @@ export function HeroMedia() {
 
   return (
     <div className="absolute inset-0 overflow-hidden">
+      <Image
+        src={HERO_POSTER}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <motion.video
-        src="/video/hero.mp4"
+        src={videoReady ? HERO_VIDEO : undefined}
         animate={{ scale: [1, 1.04], x: [0, 1.5, 0], y: [0, -1, 0] }}
         transition={{ duration: 40, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }}
         className="absolute inset-0 h-full w-full object-cover"
@@ -55,8 +80,8 @@ export function HeroMedia() {
         muted
         loop
         playsInline
-        preload="metadata"
-        poster="/images/hero-poster.webp"
+        preload="none"
+        poster={HERO_POSTER}
       />
 
       <motion.div

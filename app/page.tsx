@@ -42,7 +42,7 @@ export default function HomePage() {
       <article className="relative isolate">
         <HeroSection />
 
-        <section id="philosophy" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+        <section id="philosophy" className="section-grid content-auto px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr,1.1fr] lg:items-start lg:gap-18">
             <div className="lg:sticky lg:top-28">
               <SectionTitle
@@ -74,7 +74,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="experience" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+        <section id="experience" className="section-grid content-auto px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr,0.95fr] lg:gap-16">
             <div className="grid gap-4 sm:grid-cols-2">
               <Reveal className="group relative min-h-[29rem] overflow-hidden rounded-[2rem] border border-white/8 sm:col-span-2">
@@ -138,7 +138,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="retreat" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+        <section id="retreat" className="section-grid content-auto px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:grid-cols-[0.88fr,1.12fr] lg:gap-16">
               <div className="lg:sticky lg:top-28 self-start">
@@ -181,7 +181,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="why-eleven" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+        <section id="why-eleven" className="section-grid content-auto px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-10 lg:grid-cols-[1fr,0.9fr] lg:items-end lg:gap-16">
               <div className="space-y-7">
@@ -207,7 +207,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="gallery" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+        <section id="gallery" className="section-grid content-auto px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-7xl">
             <SectionTitle
               title="A few unguarded hours."
@@ -242,7 +242,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="journal" className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
+        <section id="journal" className="section-grid content-auto px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
             <div className="mx-auto max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
               <ParallaxBackground src="/images/journal.webp" overlayOpacity={0.6} />
