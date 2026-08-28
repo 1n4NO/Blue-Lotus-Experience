@@ -3,6 +3,7 @@ import { Inter, Libre_Baskerville } from 'next/font/google';
 
 import { ApplicationModalProvider } from '@/components/application-modal-provider';
 import { DeferredEnhancements } from '@/components/deferred-enhancements';
+import { LoadingSequence } from '@/components/loading-sequence';
 import { SiteHeader } from '@/components/site-header';
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
 import { siteConfig } from '@/lib/site';
@@ -86,7 +87,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ApplicationModalProvider>
             <SiteHeader />
             <DeferredEnhancements />
-            {children}
+            <LoadingSequence>{children}</LoadingSequence>
           </ApplicationModalProvider>
         </SmoothScrollProvider>
       </body>
