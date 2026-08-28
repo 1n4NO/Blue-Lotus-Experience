@@ -89,7 +89,7 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={0.08} className="relative min-h-72 overflow-hidden rounded-[1.5rem] border border-white/8">
                 <Image
-                  src="/images/gallery/4.png"
+                  src="/images/gallery/4.webp"
                   alt="Single dew drop hanging from a leaf."
                   fill
                   sizes="(max-width: 1024px) 100vw, 28vw"
@@ -98,7 +98,7 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={0.16} className="relative min-h-72 overflow-hidden rounded-[1.5rem] border border-white/8">
                 <Image
-                  src="/images/gallery/3.png"
+                  src="/images/gallery/3.webp"
                   alt="Stone forest path with soft filtered light."
                   fill
                   sizes="(max-width: 1024px) 100vw, 28vw"
@@ -291,7 +291,7 @@ export default function HomePage() {
 
         <section className="relative h-[70vh] w-full min-h-[420px] overflow-hidden">
           <Image
-            src="/images/gallery/10.png"
+            src="/images/gallery/10.webp"
             alt=""
             fill
             sizes="100vw"

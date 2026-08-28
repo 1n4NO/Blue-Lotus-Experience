@@ -50,7 +50,7 @@ Content notes
 - Brand logo uses `public/images/profile.png`
 - Apply URL: `https://deformity.ai/d/2CQYLc2wbqYl`
 - Contact email: `retreat@blue-lotus-experience.com`
-- Instagram: `https://www.instagram.com/blue.lotus.experience/`
+- Instagram: `https://www.instagram.com/bluelotus.experience/`
 
 Design language
 - Background: `#090909`

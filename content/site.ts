@@ -283,11 +283,11 @@ export const whyEleven = [
 ] as const;
 
 export const galleryImages: GalleryImage[] = [
-  { src: '/images/gallery/6.png', alt: 'Blue lotus tea ceremony.', span: 'wide' },
-  { src: '/images/gallery/18.png', alt: 'Rest and reflection in the forest.', span: 'tall' },
-  { src: '/images/gallery/12.png', alt: 'Solo reflection in the forest.', span: 'default' },
-  { src: '/images/gallery/9.png', alt: 'Mushroom tea in a forest setting.', span: 'default' },
-  { src: '/images/gallery/11.png', alt: 'Guided forest walk.', span: 'default' }
+  { src: '/images/gallery/6.webp', alt: 'Blue lotus tea ceremony.', span: 'wide' },
+  { src: '/images/gallery/18.webp', alt: 'Rest and reflection in the forest.', span: 'tall' },
+  { src: '/images/gallery/12.webp', alt: 'Solo reflection in the forest.', span: 'default' },
+  { src: '/images/gallery/9.webp', alt: 'Mushroom tea in a forest setting.', span: 'default' },
+  { src: '/images/gallery/11.webp', alt: 'Guided forest walk.', span: 'default' }
 ];
 
 export const applicationDetails = {
@@ -394,7 +394,7 @@ export const facilitators: Facilitator[] = [
 ];
 
 export const footerDetails = {
-  instagram: 'https://www.instagram.com/experience.blue.lotus/',
+  instagram: 'https://www.instagram.com/bluelotus.experience/',
   email: 'retreat@blue-lotus-experience.com',
   location: 'Kodaikanal, Tamil Nadu'
 } as const;

@@ -25,12 +25,12 @@ type StepConfig = {
 };
 
 const STEPS: StepConfig[] = [
-  { title: "Let's start with you.", image: '/images/gallery/1.png' },
-  { title: 'How can we reach you?', image: '/images/gallery/3.png' },
-  { title: 'Where are you, right now?', image: '/images/gallery/12.png' },
-  { title: 'A few preferences.', image: '/images/gallery/6.png' },
-  { title: 'Anything we should know?', image: '/images/gallery/18.png' },
-  { title: 'One last thing.', image: '/images/gallery/11.png' }
+  { title: "Let's start with you.", image: '/images/gallery/1.webp' },
+  { title: 'How can we reach you?', image: '/images/gallery/3.webp' },
+  { title: 'Where are you, right now?', image: '/images/gallery/12.webp' },
+  { title: 'A few preferences.', image: '/images/gallery/6.webp' },
+  { title: 'Anything we should know?', image: '/images/gallery/18.webp' },
+  { title: 'One last thing.', image: '/images/gallery/11.webp' }
 ];
 
 const STEP_COUNT = STEPS.length;

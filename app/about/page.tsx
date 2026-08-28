@@ -247,7 +247,7 @@ export default function AboutPage() {
         <section className="section-grid px-6 py-[7rem] sm:px-8 lg:px-10 lg:py-[9rem]">
           <div className="mx-auto max-w-5xl">
             <div className="relative overflow-hidden rounded-[2rem] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
-              <ParallaxBackground src="/images/gallery/9.png" overlayOpacity={0.62} />
+              <ParallaxBackground src="/images/gallery/9.webp" overlayOpacity={0.62} />
               <Reveal className="relative space-y-7">
                 <blockquote className="mx-auto max-w-3xl font-display text-[clamp(2rem,4.6vw,3.8rem)] font-normal leading-[1.2] tracking-normal text-text text-balance">
                   {aboutManifesto.quote}

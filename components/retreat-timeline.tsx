@@ -33,7 +33,7 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
               className="pointer-events-none absolute right-5 top-5 z-10 h-28 w-28 opacity-80 sm:right-7 sm:top-7 sm:h-32 sm:w-32"
             >
               <Image
-                src={dayIndex === 0 ? '/images/petal.png' : '/images/petal-2.png'}
+                src={dayIndex === 0 ? '/images/petal.webp' : '/images/petal-2.webp'}
                 alt=""
                 fill
                 sizes="128px"
@@ -100,7 +100,7 @@ export function RetreatTimeline({ days }: RetreatTimelineProps) {
             className="pointer-events-none absolute right-5 top-5 z-10 h-28 w-28 opacity-80 sm:right-7 sm:top-7 sm:h-32 sm:w-32"
           >
             <Image
-              src={dayIndex === 0 ? '/images/petal.png' : '/images/petal-2.png'}
+              src={dayIndex === 0 ? '/images/petal.webp' : '/images/petal-2.webp'}
               alt=""
               fill
               sizes="128px"

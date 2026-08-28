@@ -332,7 +332,7 @@ function JournalNote({
 
           {index === 1 && phase === 'open' ? (
             <NoteArtifact
-              src="/images/petal.png"
+              src="/images/petal.webp"
               size={88}
               className="right-[-0.9rem] bottom-[-0.55rem] z-10 h-20 w-20 rotate-[14deg] opacity-90"
             />
@@ -340,7 +340,7 @@ function JournalNote({
 
           {index === 4 ? (
             <NoteArtifact
-              src="/images/pressed-lotus.png"
+              src="/images/pressed-lotus.webp"
               size={96}
               className="right-[-0.85rem] bottom-[0.65rem] z-10 h-20 w-20 rotate-[7deg] opacity-88"
             />
@@ -601,7 +601,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 						aria-hidden="true"
 						className="pointer-events-none absolute left-[35%] top-[10%] z-30 h-20 w-60 -translate-x-1/2 -translate-y-1/2 rotate-[90deg] opacity-88"
 						>
-						<Image src="/images/fern-2.png" alt="" fill sizes="80px" className="object-contain" />
+						<Image src="/images/fern-2.webp" alt="" fill sizes="80px" className="object-contain" />
 						</div>
 						<div
 						aria-hidden="true"
@@ -630,7 +630,7 @@ export function FaqSection({ items }: FaqSectionProps) {
 					aria-hidden="true"
 					className="pointer-events-none absolute right-[-35%] top-[8%] z-10 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[120deg] opacity-88"
 					>
-					<Image src="/images/petal-2.png" alt="" fill sizes="80px" className="object-contain" />
+					<Image src="/images/petal-2.webp" alt="" fill sizes="80px" className="object-contain" />
 					</div>
 					<div
 					aria-hidden="true"
@@ -652,13 +652,13 @@ export function FaqSection({ items }: FaqSectionProps) {
 				aria-hidden="true"
 				className="pointer-events-none absolute right-[15%] top-[8%] z-[25] h-40 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[0deg] opacity-88"
 				>
-				<Image src="/images/mushie.png" alt="" fill sizes="80px" className="object-contain" />
+				<Image src="/images/mushie.webp" alt="" fill sizes="80px" className="object-contain" />
 				</div>
 				<div
 				aria-hidden="true"
 				className="pointer-events-none absolute right-[5%] top-[18%] z-[25] h-40 w-20 -translate-x-1/2 -translate-y-1/2 rotate-[120deg] opacity-88"
 				>
-				<Image src="/images/fern.png" alt="" fill sizes="80px" className="object-contain" />
+				<Image src="/images/fern.webp" alt="" fill sizes="80px" className="object-contain" />
 				</div>
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(255,255,255,0.02),transparent_34%)]" />
                 <Image
@@ -674,42 +674,42 @@ export function FaqSection({ items }: FaqSectionProps) {
                   aria-hidden="true"
                   className="pointer-events-none absolute left-[8.25%] bottom-[9.85rem] z-[21] h-36 w-36 rotate-[6deg] opacity-96"
                 >
-                  <Image src="/images/note-1.png" alt="" fill sizes="144px" className="object-contain" />
+                  <Image src="/images/note-1.webp" alt="" fill sizes="144px" className="object-contain" />
                 </div>
 
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute right-[7.4%] bottom-[0.5rem] z-[23] h-20 w-20 rotate-[-10deg] opacity-82"
                 >
-                  <Image src="/images/scribble.png" alt="" fill sizes="80px" className="object-contain" />
+                  <Image src="/images/scribble.webp" alt="" fill sizes="80px" className="object-contain" />
                 </div>
 
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute right-[10.2%] bottom-[1.7rem] z-[14] h-40 w-40 rotate-[-18deg] opacity-88"
                 >
-                  <Image src="/images/pencil.png" alt="" fill sizes="80px" className="object-contain" />
+                  <Image src="/images/pencil.webp" alt="" fill sizes="80px" className="object-contain" />
                 </div>
 
 				<div
                   aria-hidden="true"
                   className="pointer-events-none absolute right-[10.2%] bottom-[15.7rem] z-[16] h-40 w-40 rotate-[-18deg] opacity-88"
                 >
-                  <Image src="/images/fern-3.png" alt="" fill sizes="80px" className="object-contain" />
+                  <Image src="/images/fern-3.webp" alt="" fill sizes="80px" className="object-contain" />
                 </div>
 
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute left-[2.6%] bottom-[2.1rem] z-[10] h-32 w-32 rotate-[-8deg] opacity-1"
                 >
-                  <Image src="/images/stain.png" alt="" fill sizes="96px" className="object-contain" />
+                  <Image src="/images/stain.webp" alt="" fill sizes="96px" className="object-contain" />
                 </div>
 
 				<div
                   aria-hidden="true"
                   className="pointer-events-none absolute left-[-3%] top-[10.1rem] z-[10] h-32 w-32 rotate-[90deg] opacity-88"
                 >
-                  <Image src="/images/moss.png" alt="" fill sizes="96px" className="object-contain" />
+                  <Image src="/images/moss.webp" alt="" fill sizes="96px" className="object-contain" />
                 </div>
 
 

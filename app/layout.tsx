@@ -2,11 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Libre_Baskerville } from 'next/font/google';
 
 import { ApplicationModalProvider } from '@/components/application-modal-provider';
-import { AudioToggle } from '@/components/audio-toggle';
-import { CustomCursor } from '@/components/custom-cursor';
-import { NoiseOverlay } from '@/components/noise-overlay';
-import { LoadingSequence } from '@/components/loading-sequence';
-import { ScrollProgress } from '@/components/scroll-progress';
+import { DeferredEnhancements } from '@/components/deferred-enhancements';
 import { SiteHeader } from '@/components/site-header';
 import { SmoothScrollProvider } from '@/components/smooth-scroll-provider';
 import { siteConfig } from '@/lib/site';
@@ -88,12 +84,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </a>
         <SmoothScrollProvider>
           <ApplicationModalProvider>
-            <ScrollProgress />
             <SiteHeader />
-            <NoiseOverlay />
-            <CustomCursor />
-            <AudioToggle />
-            <LoadingSequence>{children}</LoadingSequence>
+            <DeferredEnhancements />
+            {children}
           </ApplicationModalProvider>
         </SmoothScrollProvider>
       </body>
