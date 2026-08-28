@@ -135,31 +135,48 @@ export function ApplicationModal({ isOpen, onClose }: { isOpen: boolean; onClose
     setStatus('submitting');
     setErrorMessage('');
 
-    if (!isSupabaseConfigured) {
-      setStatus('error');
-      setErrorMessage(
-        'The application form is not connected yet. Add your Supabase keys to .env.local and restart the dev server.'
-      );
-      return;
+    if (isSupabaseConfigured) {
+      const { error } = await supabase.from('applications').insert({
+        full_name: formData.fullName.trim(),
+        age_range: formData.ageRange,
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        location: formData.location.trim(),
+        season_of_life: formData.seasonOfLife,
+        meaningful_note: formData.meaningfulNote.trim() || null,
+        dietary_preferences: formData.dietaryPreferences,
+        dietary_other: formData.dietaryOther.trim() || null,
+        health_notes: formData.healthNotes.trim() || null,
+        agreed_to_terms: formData.agreedToTerms
+      });
+
+      if (error) {
+        setStatus('error');
+        setErrorMessage('Something went wrong saving your application. Please try again in a moment.');
+        return;
+      }
     }
 
-    const { error } = await supabase.from('applications').insert({
-      full_name: formData.fullName.trim(),
-      age_range: formData.ageRange,
-      email: formData.email.trim(),
-      phone: formData.phone.trim(),
-      location: formData.location.trim(),
-      season_of_life: formData.seasonOfLife,
-      meaningful_note: formData.meaningfulNote.trim() || null,
-      dietary_preferences: formData.dietaryPreferences,
-      dietary_other: formData.dietaryOther.trim() || null,
-      health_notes: formData.healthNotes.trim() || null,
-      agreed_to_terms: formData.agreedToTerms
+    const emailResponse = await fetch('/api/application', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fullName: formData.fullName.trim(),
+        ageRange: formData.ageRange,
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        location: formData.location.trim(),
+        seasonOfLife: formData.seasonOfLife,
+        meaningfulNote: formData.meaningfulNote.trim(),
+        dietaryPreferences: formData.dietaryPreferences,
+        dietaryOther: formData.dietaryOther.trim(),
+        healthNotes: formData.healthNotes.trim()
+      })
     });
 
-    if (error) {
+    if (!emailResponse.ok) {
       setStatus('error');
-      setErrorMessage('Something went wrong sending your application. Please try again in a moment.');
+      setErrorMessage('Your application was saved, but the notification email could not be sent. Please try again in a moment.');
       return;
     }
 
