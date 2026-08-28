@@ -37,6 +37,7 @@ export function HeroMedia() {
           alt=""
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -68,6 +69,7 @@ export function HeroMedia() {
         alt=""
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         className="absolute inset-0 h-full w-full object-cover"
       />
