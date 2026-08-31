@@ -4,10 +4,10 @@ Blue Lotus Experience is a two-day slow-living forest retreat in Kodaikanal, Tam
 
 ## Public pages
 
-- [Home](https://bluelotusexperience.com/): Retreat overview, philosophy, experience, schedule, gallery, FAQs, application process, and November 2026 application details.
-- [About](https://bluelotusexperience.com/about): Blue Lotus principles, founder note, facilitators, and approach.
-- [Contact](https://bluelotusexperience.com/contact): Contact details and Instagram link.
-- [Terms & Conditions](https://bluelotusexperience.com/terms): Application, payment, cancellation, accessibility, and participation terms.
+- [Home](https://www.blue-lotus-experience.com/): Retreat overview, philosophy, experience, schedule, gallery, FAQs, application process, and November 2026 application details.
+- [About](https://www.blue-lotus-experience.com/about): Blue Lotus principles, founder note, facilitators, and approach.
+- [Contact](https://www.blue-lotus-experience.com/contact): Contact details and Instagram link.
+- [Terms & Conditions](https://www.blue-lotus-experience.com/terms): Application, payment, cancellation, accessibility, and participation terms.
 
 ## Retreat facts
 
@@ -31,5 +31,5 @@ Blue Lotus Experience is a two-day slow-living forest retreat in Kodaikanal, Tam
 
 ## Technical resources
 
-- [Sitemap](https://bluelotusexperience.com/sitemap.xml)
-- [Robots](https://bluelotusexperience.com/robots.txt)
+- [Sitemap](https://www.blue-lotus-experience.com/sitemap.xml)
+- [Robots](https://www.blue-lotus-experience.com/robots.txt)
