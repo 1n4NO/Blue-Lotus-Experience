@@ -57,7 +57,7 @@ export default function OpenGraphImage() {
             Come home to yourself.
           </div>
           <div style={{ fontSize: 28, lineHeight: 1.45, maxWidth: 720, color: '#d5d0c8' }}>
-            Two days in the forests of Kodaikanal. Limited to eleven participants.
+            An Intimate experience over the weekend in the forests of Kodaikanal.
           </div>
         </div>
 

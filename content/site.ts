@@ -22,7 +22,7 @@ export const applicationUrl = 'https://deformity.ai/d/2CQYLc2wbqYl';
 
 export const heroCopy = {
   headline: 'Come home to yourself.',
-  subheading: 'Two days in the forests of Kodaikanal. Limited to eleven participants.',
+  subheading: 'An Intimate experience over the weekend in the forests of Kodaikanal.',
   primaryCta: 'Begin Your Journey',
   secondaryCta: 'Explore',
   bottomHint: 'Scroll'
