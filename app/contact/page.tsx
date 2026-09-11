@@ -8,7 +8,7 @@ import { SeoBreadcrumbs } from '@/components/seo-breadcrumbs';
 
 export const metadata: Metadata = {
   title: { absolute: 'Contact Blue Lotus Experience' },
-  description: 'Contact Blue Lotus Experience about the 13th November - 15th November 2026 Kodaikanal forest retreat and application process.',
+  description: `Contact Blue Lotus Experience about applications. ${siteConfig.description}`,
   alternates: {
     canonical: '/contact'
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: `${siteConfig.url}/contact`,
     title: 'Contact Blue Lotus Experience',
-    description: 'Contact Blue Lotus Experience about the 13th November - 15th November 2026 Kodaikanal forest retreat and application process.'
+    description: `Contact Blue Lotus Experience about applications. ${siteConfig.description}`
   }
 };
 

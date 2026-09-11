@@ -21,7 +21,7 @@ import { SeoBreadcrumbs } from '@/components/seo-breadcrumbs';
 export const metadata: Metadata = {
   title: { absolute: 'About Blue Lotus · Slow-Living Retreat in Kodaikanal' },
   description:
-    'Learn about Blue Lotus Experience, a slow-living forest retreat in Kodaikanal rooted in presence, nature, and human-scale connection.',
+    `Learn about Blue Lotus Experience. ${siteConfig.description}`,
   alternates: {
     canonical: '/about'
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/about`,
     title: 'About Blue Lotus · Slow-Living Retreat in Kodaikanal',
     description:
-      'Learn about Blue Lotus Experience, a slow-living forest retreat in Kodaikanal rooted in presence, nature, and human-scale connection.'
+      `Learn about Blue Lotus Experience. ${siteConfig.description}`
   }
 };
 
