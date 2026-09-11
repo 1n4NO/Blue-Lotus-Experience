@@ -541,7 +541,7 @@ function StepSeason({
       </div>
 
       <div>
-        <FieldLabel>What would make these two days meaningful for you? (optional)</FieldLabel>
+        <FieldLabel>What would make these three days meaningful for you? (optional)</FieldLabel>
         <textarea
           value={formData.meaningfulNote}
           onChange={(event) => updateField('meaningfulNote', event.target.value)}
@@ -645,8 +645,8 @@ function StepConfirm({
       </p>
 
       <p className="text-sm italic leading-7 text-muted/80">
-        I understand this retreat is intentionally small, transportation and accommodation are not
-        included, and my application does not guarantee a seat.
+        I understand this retreat is intentionally small, accommodations are provided for three nights,
+        transportation is not included, and my application does not guarantee a seat.
       </p>
 
       <div className="space-y-3">

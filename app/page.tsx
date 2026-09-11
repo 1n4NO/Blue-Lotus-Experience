@@ -12,7 +12,7 @@ import {
   galleryImages,
   includedItems,
   philosophyLines,
-  retreatSchedule,
+  // retreatSchedule,
   whoThisIsFor,
   whyEleven
 } from '@/content/site';
@@ -22,7 +22,7 @@ import { HeroSection } from '@/components/hero-section';
 import { LineIllustration } from '@/components/line-illustration';
 import { ParallaxBackground } from '@/components/parallax-background';
 import { Reveal } from '@/components/reveal';
-import { RetreatTimeline } from '@/components/retreat-timeline';
+// import { RetreatTimeline } from '@/components/retreat-timeline';
 import { SectionTitle } from '@/components/section-title';
 import { SeoJsonLd } from '@/components/seo-json-ld';
 import { EndSequence } from '@/components/end-sequence';
@@ -148,7 +148,10 @@ export default function HomePage() {
                 />
               </div>
 
-              <RetreatTimeline days={retreatSchedule} />
+              {/* <RetreatTimeline days={retreatSchedule} /> */}
+              <p className="text-pretty text-lg leading-7 text-muted">
+                <sup>*</sup>{' '}The detailed schedule will be shared with registered participants.
+              </p>
             </div>
 
             <div className="mt-14 flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
@@ -366,6 +369,12 @@ export default function HomePage() {
                     {item}
                   </p>
                 ))}
+              </div>
+
+              <div className="mx-auto max-w-2xl space-y-2 text-base leading-7 text-muted">
+                <p>₹15,000 for double sharing · ₹22,000 for single occupancy.</p>
+                <p>Accommodations provided for three nights, inclusive of two meals each day and all sessions.</p>
+                <p>Check-in: 13th November 2026 · Check-out: 16th November 2026.</p>
               </div>
 
               <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2">

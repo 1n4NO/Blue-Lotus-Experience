@@ -35,14 +35,13 @@ const sections = [
   {
     title: 'What is included',
     body: [
-      'Your fee covers guided forest walks, tea ceremonies, journaling sessions, seasonal farm-to-table meals, the campfire gathering, and reflection materials for the two days of the retreat.'
+      'The fee is ₹15,000 for double sharing or ₹22,000 for single occupancy. Your fee covers guided forest walks, tea ceremonies, journaling sessions, two seasonal farm-to-table meals each day, the campfire gathering, reflection materials, and all sessions for the retreat from 13th November - 15th November 2026. Accommodations are provided for three nights, with check-in on 13th November 2026 and check-out on 16th November 2026.'
     ]
   },
   {
     title: 'What is not included',
     body: [
-      'Transportation to and from Kodaikanal is not included.',
-      'Accommodation is not included. We are happy to share a short list of nearby stays if it would help your planning.'
+      'Transportation to and from Kodaikanal is not included.'
     ]
   },
   {

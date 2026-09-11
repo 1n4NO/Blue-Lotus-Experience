@@ -188,7 +188,9 @@ export const includedItems = [
   'Guided forest walks',
   'Tea ceremonies',
   'Journaling prompts',
-  'Seasonal farm-to-table meals',
+  'Two seasonal farm-to-table meals each day',
+  'Accommodations provided for three nights',
+  'All retreat sessions',
   'Campfire gathering',
   'Reflection materials'
 ] as const;
@@ -221,7 +223,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Is accommodation included?',
     answer:
-      'Accommodation is not included in the retreat fee. We can share nearby stays in Kodaikanal if you would like a short list.'
+      'Yes. The fee is ₹15,000 for double sharing or ₹22,000 for single occupancy. Accommodations are provided for three nights, inclusive of two meals each day and all sessions. Check-in is on 13th November 2026 and check-out is on 16th November 2026. The retreat runs from 13th November - 15th November 2026.'
   },
   {
     question: 'What happens after I apply?',
@@ -278,7 +280,7 @@ export const principles = [
 
 export const whyEleven = [
   { value: '11', label: 'people' },
-  { value: '2', label: 'days' },
+  { value: '3', label: 'days' },
   { value: '1', label: 'intent' }
 ] as const;
 
@@ -291,7 +293,7 @@ export const galleryImages: GalleryImage[] = [
 ];
 
 export const applicationDetails = {
-  month: 'November',
+  month: '13th November - 15th November',
   location: 'Kodaikanal',
   capacityNumber: '11',
   capacityLabel: 'Participants',
@@ -299,9 +301,9 @@ export const applicationDetails = {
 } as const;
 
 export const applicationCard = {
-  duration: '2 Days',
+  duration: '3 Days · 3 Nights',
   participants: '11 Participants',
-  price: '₹11,111',
+  price: '₹15,000',
 } as const;
 
 export const aboutCopy = {
@@ -356,7 +358,7 @@ export const brandValues = [
 export const aboutManifesto = {
   quote: 'The forest has never been in a hurry.',
   body:
-    'Rain does not rush. Trees do not compete. Mountains do not perform. Nature simply exists, and that is really what Blue Lotus is about: helping people remember how that feels, and giving them two days to practice it.'
+    'Rain does not rush. Trees do not compete. Mountains do not perform. Nature simply exists, and that is really what Blue Lotus is about: helping people remember how that feels, and giving them three days to practice it.'
 } as const;
 
 export const founderNote: FounderNote = {
@@ -365,7 +367,7 @@ export const founderNote: FounderNote = {
   paragraphs: [
     'Blue Lotus started with a simple realisation. We had built full, convenient lives with very little room left for presence.',
     'This Experience is not an escape from everyday life. It is a way to return to it slower: walking without a destination, drinking tea without distraction, sitting with people until they stop feeling like strangers.',
-    'Eleven people, two days, one forest. We have never felt the need for more than that.'
+    'Eleven people, three days, one forest. We have never felt the need for more than that.'
   ]
 } as const;
 

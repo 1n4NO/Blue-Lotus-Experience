@@ -40,7 +40,7 @@ export default function OpenGraphImage() {
             <div style={{ fontSize: 18, letterSpacing: 6, textTransform: 'uppercase', opacity: 0.75 }}>
               Blue Lotus Experience
             </div>
-            <div style={{ fontSize: 14, opacity: 0.55 }}>Kodaikanal · November 2026</div>
+            <div style={{ fontSize: 14, opacity: 0.55 }}>Kodaikanal · 13th November - 15th November 2026</div>
           </div>
         </div>
 
