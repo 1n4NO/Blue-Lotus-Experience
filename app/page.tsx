@@ -128,7 +128,11 @@ export default function HomePage() {
                         <h3 className="font-display text-[1.48rem] font-normal leading-[1.2] tracking-normal text-text">
                           {item.title}
                         </h3>
-                        <p className="mt-2 max-w-xl text-sm leading-[1.72] text-muted">{item.description}</p>
+                        <p className="mt-2 max-w-xl text-sm leading-[1.72] text-muted">
+                          {item.description.split('**').map((part, partIndex) =>
+                            partIndex % 2 === 1 ? <strong key={partIndex}>{part}</strong> : part
+                          )}
+                        </p>
                       </div>
                     </div>
                   </Reveal>

@@ -37,33 +37,33 @@ export const experienceItems: ExperienceItem[] = [
   {
     title: 'Forest Walks',
     description:
-      'Unhurried walks through the rainforest where attention returns to texture, moisture, and breath.'
+      'Unhurried walks beneath the trees, inviting you to reconnect with your senses. Feel the earth beneath your feet, listen to the rain and leaves, notice the moisture in the air and let your body remember what it feels like to simply be present.'
   },
   {
-    title: 'Tea Ceremony',
+    title: 'Blue Lotus Tea Ceremony',
     description:
-      'A quiet tea ritual designed to slow the body and soften the pace of the room.'
+      'A ceremonial tea experience centred around **Blue Lotus**, an ancient flower associated with spiritual reflection, intuition, and inner connection. Sip slowly, settle into stillness, and create space to reconnect with your **higher self** and the quieter parts of your being.'
   },
   {
     title: 'Journaling',
     description:
-      'Reflective prompts and private writing time to listen more closely to what is already there.'
+      'A private space to put down the noise and turn inward. Guided prompts help you explore your thoughts, emotions, intentions, and the things you may have been too busy to notice, creating a deeper conversation with yourself.'
   },
   {
     title: 'Campfire Conversations',
     description:
-      'Small circle conversations that make room for honesty, warmth, and lived experience.'
+      'Gather around the warmth of the fire for intimate, unfiltered conversations. No small talk, no pressure to perform just stories, questions, laughter, vulnerability, and the kind of human connection that often gets lost in everyday life.'
   },
   {
     title: 'Shared Silence',
     description:
-      'Space to be together without performance, allowing silence to become part of the practice.'
+      'An intentional experience of being together without needing to speak. Sit beneath the trees, beside the fire, or simply with yourself, and discover how peaceful connection can feel when nothing needs to be said.'
   }
 ];
 
 export const experienceIllustrations = [
   { title: 'Forest Walks', kind: 'forest' },
-  { title: 'Tea Ceremony', kind: 'tea' },
+  { title: 'Blue Lotus Tea Ceremony', kind: 'tea' },
   { title: 'Campfire Conversations', kind: 'fire' },
   { title: 'Journaling', kind: 'journal' },
   { title: 'Shared Silence', kind: 'silence' }
