@@ -44,7 +44,7 @@ export function LoadingSequence({ children }: LoadingSequenceProps) {
     };
   }, [pathname, reduceMotion]);
 
-  if (reduceMotion) {
+  if (reduceMotion || pathname === '/apply') {
     return <>{children}</>;
   }
 

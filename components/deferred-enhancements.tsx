@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const AudioToggle = dynamic(() => import('@/components/audio-toggle').then((module) => module.AudioToggle), {
@@ -17,6 +18,7 @@ const ScrollProgress = dynamic(() => import('@/components/scroll-progress').then
 });
 
 export function DeferredEnhancements() {
+  const isApplyPage = usePathname() === '/apply';
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export function DeferredEnhancements() {
     };
   }, []);
 
-  if (!ready) return null;
+  if (!ready || isApplyPage) return null;
 
   return (
     <>

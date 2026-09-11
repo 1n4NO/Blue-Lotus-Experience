@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
@@ -11,6 +12,7 @@ import { useApplicationModal } from '@/components/application-modal-provider';
 import { cn } from '@/lib/cn';
 
 export function SiteHeader() {
+  const isApplyPage = usePathname() === '/apply';
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -33,6 +35,15 @@ export function SiteHeader() {
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [open]);
+
+  if (isApplyPage) return (
+    <header className="absolute inset-x-0 top-0 z-40 px-6 py-6 sm:px-8">
+      <Link href="/" aria-label="Blue Lotus Experience home" className="mx-auto flex w-fit items-center gap-3">
+        <Image src="/images/logo-mark-round.png" alt="" width={34} height={34} priority className="h-8 w-8 rounded-full" />
+        <span className="font-ui text-xs uppercase tracking-[0.3em] text-text">Blue Lotus</span>
+      </Link>
+    </header>
+  );
 
   return (
     <header className="fixed inset-x-0 top-0 z-40">
