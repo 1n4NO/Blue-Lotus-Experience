@@ -362,8 +362,8 @@ export const aboutManifesto = {
 } as const;
 
 export const founderNote: FounderNote = {
-  name: 'Founder',
-  role: 'Founder, Blue Lotus Experience',
+  name: 'Pratik Singh',
+  role: 'Curator, Blue Lotus Experience',
   paragraphs: [
     'Blue Lotus started with a simple realisation. We had built full, convenient lives with very little room left for presence.',
     'This Experience is not an escape from everyday life. It is a way to return to it slower: walking without a destination, drinking tea without distraction, sitting with people until they stop feeling like strangers.',
@@ -374,21 +374,21 @@ export const founderNote: FounderNote = {
 export const facilitators: Facilitator[] = [
   {
     modality: 'Breathwork & Sound Healing',
-    name: 'TBD',
+    name: 'Shakti',
     role: 'Breathwork & Sound Healing Facilitator',
     bio: 'Breath and sound move through this session together, easing the body between conscious breathing and resonant tone. No performance is involved, only attention.',
-    initials: 'BS'
+    initials: 'S'
   },
   {
     modality: 'Tea Ceremony & Journaling',
-    name: 'TBD',
+    name: 'Avnika',
     role: 'Tea Ceremony & Journaling Facilitator',
     bio: 'A slow tea ritual gives way to quiet, guided writing. Each cup is a chance to notice the warmth and the pause between sips, and each page is a chance to listen to what is already there.',
-    initials: 'TJ'
+    initials: 'A'
   },
   {
     modality: 'Forest Bathing',
-    name: 'TBD',
+    name: 'Blue Lotus Team',
     role: 'Forest Bathing',
     bio: 'This one is held together rather than by a single guide. A practice of walking slowly and noticing fully, with no destination and no pace to keep, only the forest and the attention it asks for.',
     initials: 'BL'
