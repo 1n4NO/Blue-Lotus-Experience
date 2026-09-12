@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Instagram } from 'lucide-react';
 
 import {
   aboutCopy,
@@ -107,14 +108,9 @@ export default function AboutPage() {
             <AboutHeading title="A note, in our own words." className="max-w-2xl" />
 
             <Reveal delay={0.1} className="mt-12 grid gap-8 sm:grid-cols-[6rem,1fr] sm:gap-10">
-              <div className="flex h-24 w-24 flex-none items-center justify-center rounded-full border border-white/12 bg-surface">
-                <span className="font-display text-xl tracking-normal text-gold/80">
-                  {founderNote.name
-                    .split(' ')
-                    .map((part) => part[0])
-                    .join('')}
-                </span>
-              </div>
+              <a href={founderNote.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${founderNote.name} on Instagram (opens in a new tab)`} className="block h-24 w-24 overflow-hidden rounded-full border border-white/12 transition-colors hover:border-gold">
+                <Image src={founderNote.image} alt={founderNote.name} width={96} height={96} className="h-full w-full object-cover" />
+              </a>
 
               <div className="space-y-5">
                 {founderNote.paragraphs.map((paragraph, index) => (
@@ -123,7 +119,9 @@ export default function AboutPage() {
                   </p>
                 ))}
                 <div className="pt-2">
-                  <p className="font-display text-xl tracking-normal text-text">{founderNote.name}</p>
+                  <a href={founderNote.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 font-display text-xl tracking-normal text-text transition-colors hover:text-gold" aria-label={`${founderNote.name} on Instagram (opens in a new tab)`}>
+                    {founderNote.name}<Instagram className="h-4 w-4 text-gold/80" strokeWidth={1.4} aria-hidden="true" />
+                  </a>
                   <p className="mt-1 font-ui text-[0.65rem] uppercase tracking-[0.3em] text-gold/75">
                     {founderNote.role}
                   </p>
@@ -149,18 +147,16 @@ export default function AboutPage() {
                   className="flex flex-col gap-5 border border-white/8 p-7"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="flex h-14 w-14 flex-none items-center justify-center rounded-full border border-white/12 bg-surface">
-                      <span className="font-display text-sm tracking-normal text-gold/80">
-                        {person.initials}
-                      </span>
-                    </div>
+                    <a href={person.instagram} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${person.name} on Instagram (opens in a new tab)`} className="block h-14 w-14 flex-none overflow-hidden rounded-full border border-white/12 transition-colors hover:border-gold">
+                      <Image src={person.image} alt={person.name} width={56} height={56} className="h-full w-full object-cover" />
+                    </a>
                     <div>
                       <p className="font-ui text-[0.6rem] uppercase tracking-[0.3em] text-gold/75">
                         {person.modality}
                       </p>
-                      <p className="mt-1 font-display text-[1.25rem] leading-[1.2] tracking-normal text-text">
-                        {person.name}
-                      </p>
+                      <a href={person.instagram} target="_blank" rel="noopener noreferrer" aria-label={`${person.name} on Instagram (opens in a new tab)`} className="mt-1 inline-flex items-center gap-2 font-display text-[1.25rem] leading-[1.2] tracking-normal text-text transition-colors hover:text-gold">
+                        {person.name}<Instagram className="h-4 w-4 flex-none text-gold/80" strokeWidth={1.4} aria-hidden="true" />
+                      </a>
                     </div>
                   </div>
                   <p className="text-sm leading-[1.7] text-muted">{person.bio}</p>

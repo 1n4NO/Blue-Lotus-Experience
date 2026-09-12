@@ -43,12 +43,16 @@ export type RetreatDay = {
 };
 
 export type FounderNote = {
+  instagram: string;
+  image: string;
   name: string;
   role: string;
   paragraphs: string[];
 };
 
 export type Facilitator = {
+  instagram: string;
+  image: string;
   modality: string;
   name: string;
   role: string;

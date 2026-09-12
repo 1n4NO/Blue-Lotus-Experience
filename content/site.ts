@@ -45,6 +45,21 @@ export const experienceItems: ExperienceItem[] = [
       'A ceremonial tea experience centred around **Blue Lotus**, an ancient flower associated with spiritual reflection, intuition, and inner connection. Sip slowly, settle into stillness, and create space to reconnect with your **higher self** and the quieter parts of your being.'
   },
   {
+    title: 'Yin Yoga',
+    description:
+      'Slow, supported postures invite you to settle into your body without rushing to the next movement. Stay a little longer, notice what you feel, and make room for stillness, meeting each moment with patience rather than effort.'
+  },
+  {
+    title: 'Breathwork',
+    description:
+      'A guided space to explore the rhythm of your breath and the way it connects you to the present moment. Follow gentle invitations, pause when you need to, and find a pace that feels comfortable for your body.'
+  },
+  {
+    title: 'Sound Healing',
+    description:
+      'Rest in a space shaped by sound, where resonant tones rise, linger, and fade into silence. There is nothing to get right and nowhere to arrive. Simply listen, notice the vibrations, and let the experience unfold at its own pace.'
+  },
+  {
     title: 'Journaling',
     description:
       'A private space to put down the noise and turn inward. Guided prompts help you explore your thoughts, emotions, intentions, and the things you may have been too busy to notice, creating a deeper conversation with yourself.'
@@ -64,6 +79,9 @@ export const experienceItems: ExperienceItem[] = [
 export const experienceIllustrations = [
   { title: 'Forest Walks', kind: 'forest' },
   { title: 'Blue Lotus Tea Ceremony', kind: 'tea' },
+  { title: 'Yin Yoga', kind: 'yoga' },
+  { title: 'Breathwork', kind: 'breath' },
+  { title: 'Sound Healing', kind: 'sound' },
   { title: 'Campfire Conversations', kind: 'fire' },
   { title: 'Journaling', kind: 'journal' },
   { title: 'Shared Silence', kind: 'silence' }
@@ -189,7 +207,7 @@ export const includedItems = [
   'Tea ceremonies',
   'Journaling prompts',
   'Two seasonal farm-to-table meals each day',
-  'Accommodations provided for three nights',
+  'Accommodations provided for two nights',
   'All retreat sessions',
   'Campfire gathering',
   'Reflection materials'
@@ -223,7 +241,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Is accommodation included?',
     answer:
-      'Yes. The fee is ₹15,000 for double sharing or ₹22,000 for single occupancy. Accommodations are provided for three nights, inclusive of two meals each day and all sessions. Check-in is on 13th November 2026 and check-out is on 16th November 2026. The retreat runs from 13th November - 15th November 2026.'
+      'Yes. The fee is ₹11,000 for triple sharing, ₹15,000 for double sharing, and ₹22,000 for single occupancy. Accommodations are provided for two nights, inclusive of two meals each day and all sessions. Check-in is on 13th November 2026 and check-out is on 15th November 2026. The retreat runs from 13th November - 15th November 2026.'
   },
   {
     question: 'What happens after I apply?',
@@ -301,9 +319,9 @@ export const applicationDetails = {
 } as const;
 
 export const applicationCard = {
-  duration: '3 Days · 3 Nights',
+  duration: '3 Days · 2 Nights',
   participants: '11 Participants',
-  price: '₹15,000',
+  price: 'From ₹11,000',
 } as const;
 
 export const aboutCopy = {
@@ -362,7 +380,9 @@ export const aboutManifesto = {
 } as const;
 
 export const founderNote: FounderNote = {
-  name: 'Pratik Singh',
+  name: 'Pratik',
+    instagram: 'https://www.instagram.com/i.pratiksingh/',
+    image: '/images/people/pratik.jpg',
   role: 'Curator, Blue Lotus Experience',
   paragraphs: [
     'Blue Lotus started with a simple realisation. We had built full, convenient lives with very little room left for presence.',
@@ -375,6 +395,8 @@ export const facilitators: Facilitator[] = [
   {
     modality: 'Breathwork & Sound Healing',
     name: 'Shakti',
+    instagram: 'https://www.instagram.com/soul_of_sound7/',
+    image: '/images/people/shakti.jpg',
     role: 'Breathwork & Sound Healing Facilitator',
     bio: 'Breath and sound move through this session together, easing the body between conscious breathing and resonant tone. No performance is involved, only attention.',
     initials: 'S'
@@ -382,6 +404,8 @@ export const facilitators: Facilitator[] = [
   {
     modality: 'Tea Ceremony & Journaling',
     name: 'Avnika',
+    instagram: 'https://www.instagram.com/itsavniika/',
+    image: '/images/people/avnika.jpg',
     role: 'Tea Ceremony & Journaling Facilitator',
     bio: 'A slow tea ritual gives way to quiet, guided writing. Each cup is a chance to notice the warmth and the pause between sips, and each page is a chance to listen to what is already there.',
     initials: 'A'
@@ -389,6 +413,8 @@ export const facilitators: Facilitator[] = [
   {
     modality: 'Forest Bathing',
     name: 'Blue Lotus Team',
+    instagram: 'https://www.instagram.com/bluelotus.experience/',
+    image: '/images/logo-mark-round.png',
     role: 'Forest Bathing',
     bio: 'This one is held together rather than by a single guide. A practice of walking slowly and noticing fully, with no destination and no pace to keep, only the forest and the attention it asks for.',
     initials: 'BL'

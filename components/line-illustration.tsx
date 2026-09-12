@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
 
-type IllustrationKind = 'forest' | 'tea' | 'fire' | 'journal' | 'silence';
+type IllustrationKind = 'forest' | 'tea' | 'fire' | 'journal' | 'silence' | 'yoga' | 'breath' | 'sound';
 
 type LineIllustrationProps = {
   kind: IllustrationKind;
@@ -41,6 +41,37 @@ export function LineIllustration({ kind, className }: LineIllustrationProps) {
           <path d="M58 39c0-4 2-7 3-11" />
           <path d="M68 42c0-5 3-9 3-14" />
           <path d="M44 86h32" />
+        </>
+      ) : null}
+      {kind === 'yoga' ? (
+        <>
+          <circle cx="60" cy="30" r="8" />
+          <path d="M60 38v29" />
+          <path d="M48 49c-3 13-10 22-21 27" />
+          <path d="M72 49c3 13 10 22 21 27" />
+          <path d="M48 49c7-5 17-5 24 0" />
+          <path d="M60 67c-9 1-24 7-27 15-3 8 14 11 27 3" />
+          <path d="M60 67c9 1 24 7 27 15 3 8-14 11-27 3" />
+          <path d="M25 97h70" />
+        </>
+      ) : null}
+      {kind === 'breath' ? (
+        <>
+          <path d="M23 47h48c18 0 20-23 6-23-7 0-11 5-11 10" />
+          <path d="M18 60h71c17 0 18-22 6-25" />
+          <path d="M27 73h39c19 0 21 23 6 23-7 0-11-5-11-10" />
+          <path d="M34 35h14" />
+        </>
+      ) : null}
+      {kind === 'sound' ? (
+        <>
+          <path d="M29 62h62c-2 18-13 29-31 29S31 80 29 62Z" />
+          <path d="M48 91v6h24v-6" />
+          <path d="M37 49c12-9 34-9 46 0" />
+          <path d="M43 37c9-6 25-6 34 0" />
+          <path d="M50 26c6-3 14-3 20 0" />
+          <path d="M83 58l16-20" />
+          <path d="M95 35l8 6" />
         </>
       ) : null}
       {kind === 'fire' ? (

@@ -645,7 +645,7 @@ function StepConfirm({
       </p>
 
       <p className="text-sm italic leading-7 text-muted/80">
-        I understand this retreat is intentionally small, accommodations are provided for three nights,
+        I understand this retreat is intentionally small, accommodations are provided for two nights,
         transportation is not included, and my application does not guarantee a seat.
       </p>
 

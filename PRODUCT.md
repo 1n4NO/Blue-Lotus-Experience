@@ -24,4 +24,4 @@ Preserve the current Blue Lotus Experience website's look and feel, language, an
 
 ## Evidence on Hand
 
-Confirmed retreat facts are in content/site.ts and public/llms.txt. Retreat dates are 13–15 November 2026, with check-in 13 November and check-out 16 November. Accommodations cost ₹15,000 double sharing or ₹22,000 single occupancy, including three nights, two meals daily, and all sessions.
+Confirmed retreat facts are in content/site.ts and public/llms.txt. Retreat dates are 13–15 November 2026, with check-in 13 November and check-out 15 November. Accommodations cost ₹11,000 triple sharing, ₹15,000 double sharing, or ₹22,000 single occupancy, including two nights, two meals daily, and all sessions.

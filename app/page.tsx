@@ -376,9 +376,9 @@ export default function HomePage() {
               </div>
 
               <div className="mx-auto max-w-2xl space-y-2 text-base leading-7 text-muted">
-                <p>₹15,000 for double sharing · ₹22,000 for single occupancy.</p>
-                <p>Accommodations provided for three nights, inclusive of two meals each day and all sessions.</p>
-                <p>Check-in: 13th November 2026 · Check-out: 16th November 2026.</p>
+                <p>₹11,000 for triple sharing · ₹15,000 for double sharing · ₹22,000 for single occupancy.</p>
+                <p>Accommodations provided for two nights, inclusive of two meals each day and all sessions.</p>
+                <p>Check-in: 13th November 2026 · Check-out: 15th November 2026.</p>
               </div>
 
               <div className="mx-auto flex max-w-xl flex-col items-center gap-3.5 pt-2">

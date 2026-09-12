@@ -3,9 +3,9 @@ Blue Lotus Experience
 Luxury editorial retreat website for a three-day forest retreat in Kodaikanal, 13th November - 15th November 2026.
 
 Retreat details
-- Accommodations provided for three nights: check-in 13th November 2026, check-out 16th November 2026.
-- ₹15,000 for double sharing; ₹22,000 for single occupancy.
-- Both options include two meals each day and all retreat sessions.
+- Accommodations provided for two nights: check-in 13th November 2026, check-out 15th November 2026.
+- ₹11,000 for triple sharing; ₹15,000 for double sharing; ₹22,000 for single occupancy.
+- All options include two meals each day and all retreat sessions.
 - Transportation is not included.
 - The detailed schedule will be shared with registered participants.
 - Public retreat information for assistants: `public/llms.txt`, served at `/llms.txt`.
