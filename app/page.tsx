@@ -377,7 +377,7 @@ export default function HomePage() {
 
               <div className="mx-auto max-w-2xl space-y-2 text-base leading-7 text-muted">
                 <p>₹11,000 for triple sharing · ₹15,000 for double sharing · ₹22,000 for single occupancy.</p>
-                <p>Accommodations provided for two nights, inclusive of two meals each day and all sessions.</p>
+                <p>Accommodations provided for two nights, inclusive of two farm to table meals each day, breakfast and snacks and all sessions.</p>
                 <p>Check-in: 13th November 2026 · Check-out: 15th November 2026.</p>
               </div>
 

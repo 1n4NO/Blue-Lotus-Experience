@@ -206,7 +206,7 @@ export const includedItems = [
   'Guided forest walks',
   'Tea ceremonies',
   'Journaling prompts',
-  'Two seasonal farm-to-table meals each day',
+  'Two farm to table meals each day, breakfast and snacks',
   'Accommodations provided for two nights',
   'All retreat sessions',
   'Campfire gathering',
@@ -241,7 +241,7 @@ export const faqItems: FaqItem[] = [
   {
     question: 'Is accommodation included?',
     answer:
-      'Yes. The fee is ₹11,000 for triple sharing, ₹15,000 for double sharing, and ₹22,000 for single occupancy. Accommodations are provided for two nights, inclusive of two meals each day and all sessions. Check-in is on 13th November 2026 and check-out is on 15th November 2026. The retreat runs from 13th November - 15th November 2026.'
+      'Yes. The fee is ₹11,000 for triple sharing, ₹15,000 for double sharing, and ₹22,000 for single occupancy. Accommodations are provided for two nights, inclusive of two farm to table meals each day, breakfast and snacks and all sessions. Check-in is on 13th November 2026 and check-out is on 15th November 2026. The retreat runs from 13th November - 15th November 2026.'
   },
   {
     question: 'What happens after I apply?',

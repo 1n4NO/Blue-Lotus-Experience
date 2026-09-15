@@ -35,7 +35,7 @@ const sections = [
   {
     title: 'What is included',
     body: [
-      'The fee is ₹11,000 for triple sharing, ₹15,000 for double sharing, and ₹22,000 for single occupancy. Your fee covers guided forest walks, tea ceremonies, journaling sessions, two seasonal farm-to-table meals each day, the campfire gathering, reflection materials, and all sessions for the retreat from 13th November - 15th November 2026. Accommodations are provided for two nights, with check-in on 13th November 2026 and check-out on 15th November 2026.'
+      'The fee is ₹11,000 for triple sharing, ₹15,000 for double sharing, and ₹22,000 for single occupancy. Your fee covers guided forest walks, tea ceremonies, journaling sessions, two farm to table meals each day, breakfast and snacks, the campfire gathering, reflection materials, and all sessions for the retreat from 13th November - 15th November 2026. Accommodations are provided for two nights, with check-in on 13th November 2026 and check-out on 15th November 2026.'
     ]
   },
   {
